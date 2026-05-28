@@ -1,0 +1,155 @@
+---
+interface Props {
+  variant?: 'hero' | 'wizard' | 'retirement';
+}
+const { variant = 'hero' } = Astro.props;
+---
+
+{variant === 'hero' && (
+  <div class="relative rounded-2xl border border-border-soft bg-surface p-6 shadow-[0_24px_60px_-30px_rgba(26,26,46,0.25)]">
+    <div class="mb-5 flex items-center justify-between">
+      <div>
+        <div class="text-[11px] font-semibold uppercase tracking-[0.1em] text-teal">
+          Diagnóstico do planejamento
+        </div>
+        <div class="mt-1 text-lg font-bold text-dark">Marina & Rafael · 2026</div>
+      </div>
+      <div class="rounded-full border border-teal/20 bg-teal-pale px-3 py-1 text-[11px] font-semibold text-teal">
+        8/8 etapas
+      </div>
+    </div>
+
+    <div class="space-y-4">
+      <div>
+        <div class="mb-1.5 flex items-center justify-between">
+          <span class="text-sm font-medium text-body">Aposentadoria</span>
+          <span class="text-[11px] font-semibold text-teal">no ritmo</span>
+        </div>
+        <div class="relative h-1.5 rounded-full bg-bg-page">
+          <div class="absolute inset-y-0 left-0 rounded-full bg-teal" style="width:87%"></div>
+          <div class="absolute top-1/2 -translate-y-1/2 h-3 w-3 rounded-full bg-surface border-2 border-teal" style="left:calc(87% - 6px)"></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="mb-1.5 flex items-center justify-between">
+          <span class="text-sm font-medium text-body">Fluxo de caixa</span>
+          <span class="text-[11px] font-semibold text-teal tabular-nums">32% livre</span>
+        </div>
+        <div class="relative h-1.5 rounded-full bg-bg-page">
+          <div class="absolute inset-y-0 left-0 rounded-full bg-teal" style="width:32%"></div>
+          <div class="absolute top-1/2 -translate-y-1/2 h-3 w-3 rounded-full bg-surface border-2 border-teal" style="left:calc(32% - 6px)"></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="mb-1.5 flex items-center justify-between">
+          <span class="text-sm font-medium text-body">Proteção patrimonial</span>
+          <span class="text-[11px] font-semibold text-warning tabular-nums">68%</span>
+        </div>
+        <div class="relative h-1.5 rounded-full bg-bg-page">
+          <div class="absolute inset-y-0 left-0 rounded-full bg-warning" style="width:68%"></div>
+          <div class="absolute top-1/2 -translate-y-1/2 h-3 w-3 rounded-full bg-surface border-2 border-warning" style="left:calc(68% - 6px)"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-5 rounded-lg border border-border-soft bg-bg-page p-3">
+      <div class="flex items-center justify-between">
+        <div>
+          <div class="text-[10px] font-semibold uppercase tracking-wider text-muted">Próximo marco</div>
+          <div class="mt-0.5 text-sm font-semibold text-dark">Aposentadoria · 2048</div>
+        </div>
+        <div class="text-right">
+          <div class="text-[10px] font-semibold uppercase tracking-wider text-muted">Número mágico</div>
+          <div class="mt-0.5 text-sm font-semibold text-dark tabular-nums">R$ 8,14M</div>
+        </div>
+      </div>
+    </div>
+  </div>
+)}
+
+{variant === 'wizard' && (
+  <div class="rounded-2xl border border-border-soft bg-surface p-6 shadow-[0_24px_60px_-30px_rgba(26,26,46,0.25)]">
+    <div class="mb-5 flex items-center justify-between">
+      <div>
+        <div class="text-[11px] font-semibold uppercase tracking-[0.1em] text-teal">Wizard</div>
+        <div class="mt-1 text-sm font-bold text-dark">Etapas do planejamento</div>
+      </div>
+      <div class="text-[11px] font-semibold text-subtle tabular-nums">3 / 8</div>
+    </div>
+
+    <div class="mb-5 h-1 rounded-full bg-bg-page">
+      <div class="h-1 rounded-full bg-teal transition-all" style="width:37.5%"></div>
+    </div>
+
+    <div class="space-y-2.5">
+      <div class="flex items-center gap-3 rounded-lg bg-bg-page/50 px-3 py-2.5">
+        <div class="flex h-5 w-5 flex-none items-center justify-center rounded-full bg-teal text-white">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="h-3 w-3"><polyline points="20 6 9 17 4 12" /></svg>
+        </div>
+        <div class="flex-1 text-[13px] font-medium text-subtle line-through decoration-teal/30">01 · Cadastro do cliente</div>
+      </div>
+      <div class="flex items-center gap-3 rounded-lg bg-bg-page/50 px-3 py-2.5">
+        <div class="flex h-5 w-5 flex-none items-center justify-center rounded-full bg-teal text-white">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="h-3 w-3"><polyline points="20 6 9 17 4 12" /></svg>
+        </div>
+        <div class="flex-1 text-[13px] font-medium text-subtle line-through decoration-teal/30">02 · Fluxo de caixa</div>
+      </div>
+      <div class="flex items-center gap-3 rounded-lg bg-bg-page/50 px-3 py-2.5">
+        <div class="flex h-5 w-5 flex-none items-center justify-center rounded-full bg-teal text-white">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="h-3 w-3"><polyline points="20 6 9 17 4 12" /></svg>
+        </div>
+        <div class="flex-1 text-[13px] font-medium text-subtle line-through decoration-teal/30">03 · Objetivos de vida</div>
+      </div>
+      <div class="flex items-center gap-3 rounded-lg border border-teal/30 bg-teal-pale/40 px-3 py-2.5 ring-2 ring-teal/10">
+        <div class="flex h-5 w-5 flex-none items-center justify-center rounded-full border-2 border-teal">
+          <span class="h-1.5 w-1.5 rounded-full bg-teal"></span>
+        </div>
+        <div class="flex-1 text-[13px] font-semibold text-dark">04 · Investimentos</div>
+        <span class="text-[10px] font-semibold uppercase text-teal">atual</span>
+      </div>
+      <div class="flex items-center gap-3 px-3 py-2.5 opacity-50">
+        <div class="h-5 w-5 flex-none rounded-full border border-border-soft"></div>
+        <div class="flex-1 text-[13px] text-subtle">05 · Aposentadoria</div>
+      </div>
+      <div class="flex items-center gap-3 px-3 py-2.5 opacity-40">
+        <div class="h-5 w-5 flex-none rounded-full border border-border-soft"></div>
+        <div class="flex-1 text-[13px] text-subtle">06 · Proteção patrimonial</div>
+      </div>
+      <div class="flex items-center gap-3 px-3 py-2.5 opacity-30">
+        <div class="h-5 w-5 flex-none rounded-full border border-border-soft"></div>
+        <div class="flex-1 text-[13px] text-subtle">07 · Planejamento tributário</div>
+      </div>
+    </div>
+  </div>
+)}
+
+{variant === 'retirement' && (
+  <div class="rounded-2xl border border-border-soft bg-surface p-6 shadow-[0_24px_60px_-30px_rgba(26,26,46,0.25)]">
+    <div class="mb-4 flex items-center justify-between">
+      <div class="text-sm font-semibold text-dark">Ritmo de aposentadoria</div>
+      <div class="rounded-full bg-teal-pale px-2.5 py-0.5 text-[10px] font-semibold text-teal">No ritmo</div>
+    </div>
+    <svg viewBox="0 0 360 160" class="w-full">
+      <defs>
+        <linearGradient id="retirement-gradient" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#0D9488" stop-opacity="0.2" />
+          <stop offset="100%" stop-color="#0D9488" stop-opacity="0" />
+        </linearGradient>
+      </defs>
+      <line x1="0" y1="40" x2="360" y2="40" stroke="#E5E7EB" stroke-dasharray="3 4" />
+      <line x1="0" y1="80" x2="360" y2="80" stroke="#E5E7EB" stroke-dasharray="3 4" />
+      <line x1="0" y1="120" x2="360" y2="120" stroke="#E5E7EB" stroke-dasharray="3 4" />
+
+      <path d="M20 120 Q180 90 340 30" fill="none" stroke="#6366F1" stroke-width="2" stroke-dasharray="5 5" />
+      <path d="M20 125 Q180 105 340 50" fill="none" stroke="#0D9488" stroke-width="3" stroke-linecap="round" />
+      <path d="M20 135 Q180 125 340 90" fill="none" stroke="#94A3B8" stroke-width="2" />
+    </svg>
+    <div class="mt-4 flex items-center gap-4 text-[11px] text-subtle">
+      <span class="flex items-center gap-1.5"><span class="h-2 w-2 rounded-full bg-teal"></span> Sua projeção</span>
+      <span class="flex items-center gap-1.5"><span class="h-2 w-2 rounded-full bg-indigo"></span> Viver de renda</span>
+      <span class="flex items-center gap-1.5"><span class="h-2 w-2 rounded-full bg-slate-soft"></span> Consumir</span>
+    </div>
+  </div>
+)}

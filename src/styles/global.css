@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@theme {
+  --color-dark: #1A1A2E;
+  --color-dark-alt: #16213E;
+  --color-teal: #0D9488;
+  --color-teal-hover: #0F766E;
+  --color-teal-light: #14B8A6;
+  --color-teal-pale: #CCFBF1;
+  --color-indigo: #6366F1;
+  --color-slate-soft: #94A3B8;
+  --color-success: #16A34A;
+  --color-error: #DC2626;
+  --color-warning: #F59E0B;
+  --color-body: #1E1E2E;
+  --color-subtle: #6B7280;
+  --color-muted: #9CA3AF;
+  --color-border-soft: #E5E7EB;
+  --color-bg-page: #F9FAFB;
+  --color-surface: #FFFFFF;
+
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+html {
+  font-family: var(--font-sans);
+  color: var(--color-body);
+  background: var(--color-bg-page);
+}
+
+body {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Segmentação por perfil profissional — default Planejador (sem JS funciona) */
+[data-profile-copy][data-for]:not([data-for="planejador"]) { display: none; }
+
+body[data-profile="consultor"] [data-profile-copy][data-for="consultor"] { display: inline; }
+body[data-profile="consultor"] [data-profile-copy][data-for]:not([data-for="consultor"]) { display: none; }
+
+body[data-profile="assessor"] [data-profile-copy][data-for="assessor"] { display: inline; }
+body[data-profile="assessor"] [data-profile-copy][data-for]:not([data-for="assessor"]) { display: none; }
+
+body[data-profile="outro"] [data-profile-copy][data-for="outro"] { display: inline; }
+body[data-profile="outro"] [data-profile-copy][data-for]:not([data-for="outro"]) { display: none; }
+
+/* Calculadoras: produtividade default, churn só pro assessor */
+#calc-churn { display: none; }
+body[data-profile="assessor"] #calc-churn { display: grid; }
+body[data-profile="assessor"] #calc-produtividade { display: none; }
+
+/* Lead magnet do assessor: aparece só pro perfil assessor */
+#calc-churn-lead { display: none; }
+body[data-profile="assessor"] #calc-churn-lead { display: block; }
