@@ -1,43 +1,74 @@
-# Astro Starter Kit: Minimal
+# Karteo — Landing Page
+
+Landing page do Karteo (planejamento financeiro premium para assessores e planejadores).
+
+**Stack:** Astro v6 + Tailwind CSS v4 + Resend (lead magnet email)
+
+---
+
+## Rodar localmente
 
 ```sh
-npm create astro@latest -- --template minimal
+npm install
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+App sobe em http://localhost:4321
 
-## 🚀 Project Structure
+---
 
-Inside of your Astro project, you'll see the following folders and files:
+## Variáveis de ambiente
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+Copie `.env.example` para `.env` e preencha:
+
+| Variável | Descrição |
+|---|---|
+| `RESEND_API_KEY` | API key do Resend (envio de email do lead magnet) |
+| `RESEND_FROM_EMAIL` | Remetente (ex: `Karteo <hello@karteo.com.br>`) |
+| `RESEND_NOTIFY_EMAIL` | Email pra receber cópia de cada lead capturado |
+
+---
+
+## Deploy
+
+Sugestão: **Vercel** (mais simples para Astro + autodeploy via GitHub).
+
+### Vercel
+
+1. Conectar repo `realizewm/karteo-site` no [vercel.com](https://vercel.com)
+2. Framework Preset: **Astro** (detecta automático)
+3. Build command: `npm run build`
+4. Output directory: `dist/`
+5. Configurar Environment Variables (lista acima)
+6. Deploy
+
+Domínio custom: apontar `karteo.com.br` para o Vercel (CNAME).
+
+### Alternativas
+
+- **Netlify:** mesmo fluxo, similar
+- **Fly.io:** já é onde roda o app principal — mas Vercel é mais simples pra landing estática
+
+---
+
+## Estrutura
+
+```
+src/
+├── components/      # Astro components (DashboardMockup, Icon)
+├── layouts/         # Layout base
+├── pages/           # Rotas (index.astro + api/lead-churn.ts)
+└── styles/          # global.css (Tailwind v4)
+public/
+└── images/report/   # Mockups do PDF do Karteo
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+---
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Comandos
 
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+| Comando | Faz |
+|---|---|
+| `npm run dev` | Servidor local em :4321 com hot reload |
+| `npm run build` | Build de produção para `dist/` |
+| `npm run preview` | Preview do build local |
