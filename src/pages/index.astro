@@ -9,8 +9,7 @@ import DashboardMockup from '../components/DashboardMockup.astro';
   <header class="sticky top-0 z-40 border-b border-border-soft/60 bg-surface/80 backdrop-blur">
     <nav class="mx-auto flex max-w-[1320px] items-center justify-between px-6 py-4">
       <a href="/" class="flex items-center gap-2">
-        <span class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-dark text-sm font-bold text-white">A</span>
-        <span class="text-lg font-bold tracking-tight text-dark">Karteo</span>
+        <span class="logo-wordmark text-xl text-dark">karteo<span class="logo-dot">.</span></span>
       </a>
       <div class="hidden items-center gap-8 md:flex">
         <a href="#pilar-01" class="text-sm text-subtle transition hover:text-body">Por que Karteo</a>
@@ -759,9 +758,11 @@ import DashboardMockup from '../components/DashboardMockup.astro';
       <div class="mx-auto max-w-2xl text-center">
         <div class="mb-3 text-xs font-semibold uppercase tracking-[0.1em] text-teal">Como funciona</div>
         <h2 class="text-4xl font-bold tracking-tight text-dark">
-          {/* TÍTULO — substitua */}
-          Quatro passos, do cadastro ao PDF
+          Do cadastro ao PDF, sem sair do fluxo
         </h2>
+        <p class="mt-4 text-base leading-relaxed text-subtle">
+          As 8 etapas guiadas do Karteo, do seu lado, se resumem a quatro movimentos.
+        </p>
       </div>
 
       <div class="mt-16 grid gap-6 md:grid-cols-4">
@@ -1121,7 +1122,7 @@ import DashboardMockup from '../components/DashboardMockup.astro';
         {/* SUBTÍTULO CTA — substitua */}
         Demonstração de 30 minutos com um caso real do seu escritório. Sem compromisso.
       </p>
-      <a href="mailto:joaocabral@outlook.com" class="mt-10 inline-block rounded-lg bg-teal px-8 py-3.5 text-sm font-semibold text-white transition hover:bg-teal-hover">
+      <a href="mailto:joao@karteo.com.br?subject=Quero%20agendar%20uma%20demonstra%C3%A7%C3%A3o%20do%20Karteo&body=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20demonstra%C3%A7%C3%A3o%20do%20Karteo." class="mt-10 inline-block rounded-lg bg-teal px-8 py-3.5 text-sm font-semibold text-white transition hover:bg-teal-hover">
         Agendar demonstração
       </a>
     </div>
@@ -1131,13 +1132,13 @@ import DashboardMockup from '../components/DashboardMockup.astro';
   <footer class="border-t border-border-soft bg-surface">
     <div class="mx-auto flex max-w-[1320px] flex-col items-center justify-between gap-4 px-6 py-10 text-sm text-muted md:flex-row">
       <div class="flex items-center gap-2">
-        <span class="inline-flex h-6 w-6 items-center justify-center rounded bg-dark text-[10px] font-bold text-white">A</span>
-        <span>© 2026 Karteo · nome provisório</span>
+        <span class="logo-wordmark text-sm text-dark">karteo<span class="logo-dot">.</span></span>
+        <span>© 2026</span>
       </div>
       <div class="flex gap-6">
         <a href="#" class="transition hover:text-body">Termos</a>
         <a href="#" class="transition hover:text-body">Privacidade</a>
-        <a href="mailto:joaocabral@outlook.com" class="transition hover:text-body">Contato</a>
+        <a href="mailto:joao@karteo.com.br" class="transition hover:text-body">Contato</a>
       </div>
     </div>
   </footer>
@@ -1459,7 +1460,24 @@ import DashboardMockup from '../components/DashboardMockup.astro';
 
       const nome = leadNome.value.trim();
       const email = leadEmail.value.trim();
-      if (!nome || !email || !email.includes('@')) return;
+
+      // Validação local COM feedback visível (antes era um return silencioso — parecia que o site quebrava)
+      const showLeadError = (msg: string) => {
+        leadForm.querySelector('[data-lead-error]')?.remove();
+        const el = document.createElement('p');
+        el.dataset.leadError = 'true';
+        el.className = 'mt-2 text-center text-[11px] text-error';
+        el.textContent = msg;
+        leadForm.appendChild(el);
+      };
+
+      if (!nome || !email || !email.includes('@')) {
+        showLeadError(!nome
+          ? 'Preencha seu nome, por favor.'
+          : 'Digite um email válido (ex.: nome@email.com).');
+        return;
+      }
+      leadForm.querySelector('[data-lead-error]')?.remove();
 
       leadSubmit.disabled = true;
       leadSubmit.textContent = 'Enviando...';
@@ -1512,7 +1530,7 @@ import DashboardMockup from '../components/DashboardMockup.astro';
         const errEl = document.createElement('p');
         errEl.dataset.leadError = 'true';
         errEl.className = 'mt-2 text-center text-[11px] text-error';
-        errEl.textContent = 'Não conseguimos enviar agora. Tente em alguns instantes ou escreva para joaocabral@outlook.com.';
+        errEl.textContent = 'Não conseguimos enviar agora. Tente em alguns instantes ou escreva para joao@karteo.com.br.';
         leadForm.appendChild(errEl);
       }
     });

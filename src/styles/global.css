@@ -14,7 +14,7 @@
   --color-warning: #F59E0B;
   --color-body: #1E1E2E;
   --color-subtle: #6B7280;
-  --color-muted: #9CA3AF;
+  --color-muted: #6B7280;
   --color-border-soft: #E5E7EB;
   --color-bg-page: #F9FAFB;
   --color-surface: #FFFFFF;
@@ -30,6 +30,16 @@ html {
 
 body {
   font-variant-numeric: tabular-nums;
+}
+
+/* Logo Karteo (wordmark oficial: "karteo." minúsculo, ponto em teal) */
+.logo-wordmark {
+  font-family: "Plus Jakarta Sans", var(--font-sans);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+.logo-wordmark .logo-dot {
+  color: var(--color-teal);
 }
 
 /* Segmentação por perfil profissional — default Planejador (sem JS funciona) */
