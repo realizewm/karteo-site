@@ -10,6 +10,10 @@ export default defineConfig({
   adapter: node({
     mode: 'standalone',
   }),
+  redirects: {
+    // a landing de escritórios virou a home (15/07); manter o link antigo vivo
+    '/escritorio': '/',
+  },
   vite: {
     plugins: [tailwindcss()],
   },

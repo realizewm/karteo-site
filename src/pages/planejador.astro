@@ -1,0 +1,1538 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+import DashboardMockup from '../components/DashboardMockup.astro';
+---
+
+<Layout>
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-40 border-b border-border-soft/60 bg-surface/80 backdrop-blur">
+    <nav class="mx-auto flex max-w-[1320px] items-center justify-between px-6 py-4">
+      <a href="/" class="flex items-center gap-2">
+        <span class="logo-wordmark text-xl text-dark">karteo<span class="logo-dot">.</span></span>
+      </a>
+      <div class="hidden items-center gap-8 md:flex">
+        <a href="#pilar-01" class="text-sm text-subtle transition hover:text-body">Por que Karteo</a>
+        <a href="#como-funciona" class="text-sm text-subtle transition hover:text-body">Como funciona</a>
+        <a href="#precos" class="text-sm text-subtle transition hover:text-body">Preços</a>
+      </div>
+      <a href="#cta" class="rounded-lg bg-teal px-4 py-2 text-sm font-semibold text-white transition hover:bg-teal-hover">
+        Agendar demo
+      </a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_right,rgba(13,148,136,0.12),transparent_55%),radial-gradient(circle_at_bottom_left,rgba(99,102,241,0.08),transparent_50%)]"></div>
+    <div class="mx-auto grid max-w-[1320px] items-center gap-12 px-6 py-20 lg:grid-cols-[1.15fr_1fr] lg:gap-20 lg:py-28">
+      <div>
+        <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-teal/20 bg-teal-pale/60 px-3 py-1 text-xs font-semibold text-teal">
+          <span class="h-1.5 w-1.5 rounded-full bg-teal"></span>
+          Plataforma para assessores e planejadores
+        </div>
+        <h1 class="text-[42px] font-bold leading-[1.08] tracking-tight text-dark md:text-[56px]">
+          Se você cobra <span class="text-teal">R$ 5 mil</span> por planejamento, está cobrando barato.
+        </h1>
+        <p class="mt-4 text-xl italic text-teal md:text-2xl">
+          — pelo menos, com o Karteo.
+        </p>
+        <p class="mt-6 max-w-lg text-lg leading-relaxed text-subtle">
+          O material justifica o seu ticket. A plataforma cuida do resto.
+        </p>
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <a href="#cta" class="rounded-lg bg-teal px-6 py-3 text-sm font-semibold text-white transition hover:bg-teal-hover">
+            Agendar demonstração
+          </a>
+          <a href="#pilar-01" class="group inline-flex items-center gap-2 rounded-lg border border-border-soft bg-surface px-6 py-3 text-sm font-semibold text-body transition hover:border-teal/40 hover:bg-bg-page">
+            Veja por quê
+            <span class="transition group-hover:translate-x-1">→</span>
+          </a>
+        </div>
+      </div>
+      <div class="relative">
+        <DashboardMockup variant="hero" />
+      </div>
+    </div>
+  </section>
+
+  <!-- CALCULADORA: segmentada por perfil -->
+  <section id="calculadora" class="border-t border-border-soft bg-bg-page py-24">
+    <div class="mx-auto max-w-[1100px] px-6">
+      <div class="mx-auto max-w-2xl text-center">
+        <div class="mb-3 text-xs font-semibold uppercase tracking-[0.1em] text-teal">Calculadora</div>
+        <h2 class="text-3xl font-bold tracking-tight text-dark md:text-4xl">
+          <span data-profile-copy data-for="planejador">Quanto vale a <span class="text-teal">sua hora</span> de planejamento?</span>
+          <span data-profile-copy data-for="consultor">Quanto vale a <span class="text-teal">sua hora</span> de consultoria?</span>
+          <span data-profile-copy data-for="assessor">Quanto você <span class="text-teal">perde por ano</span> em churn?</span>
+          <span data-profile-copy data-for="outro">Quanto vale a <span class="text-teal">sua hora</span> de trabalho?</span>
+        </h2>
+        <p class="mt-4 text-base leading-relaxed text-subtle">
+          <span data-profile-copy data-for="planejador">A maioria dos profissionais nunca calculou. Coloque seus números abaixo e descubra quanto você ganha por hora hoje — e quanto poderia ganhar fazendo o mesmo trabalho em uma fração do tempo.</span>
+          <span data-profile-copy data-for="consultor">Recorrência composta exige tempo bem investido. Coloque seus números e veja quanto cada hora sua vale hoje — e quanto poderia valer com mais fluência.</span>
+          <span data-profile-copy data-for="assessor">Cliente que sai não é problema operacional — é vazamento de receita recorrente. Coloque seus números e veja quanto AUM você está perdendo por churn evitável.</span>
+          <span data-profile-copy data-for="outro">A maioria dos profissionais nunca calculou. Coloque seus números abaixo e descubra quanto você ganha por hora hoje — e quanto poderia ganhar fazendo o mesmo trabalho em uma fração do tempo.</span>
+        </p>
+      </div>
+
+      {/* Toggle de perfil contextual — sincroniza com o da seção de Preços */}
+      <div class="mx-auto mt-10 max-w-2xl text-center">
+        <p class="mb-3 text-sm text-subtle">
+          A calculadora muda dependendo de <span class="font-semibold text-body">como você ganha dinheiro</span>. Você é…
+        </p>
+        <div role="radiogroup" aria-label="Perfil profissional" class="flex flex-wrap justify-center gap-2">
+          <button
+            type="button"
+            role="radio"
+            aria-checked="true"
+            data-profile-toggle="planejador"
+            class="profile-pill rounded-full border border-border-soft bg-surface px-4 py-2 text-sm font-medium text-subtle transition hover:border-teal/40 aria-checked:border-teal aria-checked:bg-teal-pale aria-checked:text-teal"
+          >Planejador</button>
+          <button
+            type="button"
+            role="radio"
+            aria-checked="false"
+            data-profile-toggle="consultor"
+            class="profile-pill rounded-full border border-border-soft bg-surface px-4 py-2 text-sm font-medium text-subtle transition hover:border-teal/40 aria-checked:border-teal aria-checked:bg-teal-pale aria-checked:text-teal"
+          >Consultor</button>
+          <button
+            type="button"
+            role="radio"
+            aria-checked="false"
+            data-profile-toggle="assessor"
+            class="profile-pill rounded-full border border-border-soft bg-surface px-4 py-2 text-sm font-medium text-subtle transition hover:border-teal/40 aria-checked:border-teal aria-checked:bg-teal-pale aria-checked:text-teal"
+          >Assessor</button>
+          <button
+            type="button"
+            role="radio"
+            aria-checked="false"
+            data-profile-toggle="outro"
+            class="profile-pill rounded-full border border-border-soft bg-surface px-4 py-2 text-sm font-medium text-subtle transition hover:border-teal/40 aria-checked:border-teal aria-checked:bg-teal-pale aria-checked:text-teal"
+          >Outro</button>
+        </div>
+      </div>
+
+      {/* === CALCULADORA DE PRODUTIVIDADE: Planejador / Consultor / Outro === */}
+      <div id="calc-produtividade" class="mt-12 grid gap-8 lg:grid-cols-2">
+
+        {/* INPUTS */}
+        <div class="rounded-2xl border border-border-soft bg-surface p-6 shadow-[0_12px_40px_-24px_rgba(26,26,46,0.18)]">
+          <div class="text-[11px] font-semibold uppercase tracking-[0.15em] text-subtle">Seus dados</div>
+
+          <div class="mt-4 space-y-4">
+            <label class="block">
+              <span class="text-sm font-medium text-body">Quanto você cobra por planejamento?</span>
+              <div class="mt-1.5 flex items-center rounded-lg border border-border-soft bg-bg-page px-4 py-2.5 focus-within:border-teal/60">
+                <span class="text-sm text-subtle">R$</span>
+                <input
+                  id="calc-ticket"
+                  type="text"
+                  inputmode="numeric"
+                  value="5.000"
+                  class="ml-2 w-full bg-transparent text-base font-semibold text-dark tabular-nums outline-none"
+                />
+              </div>
+            </label>
+
+            <label class="block">
+              <span class="text-sm font-medium text-body">Quantas horas você gasta hoje pra fazer 1 planejamento?</span>
+              <div class="mt-1.5 flex items-center rounded-lg border border-border-soft bg-bg-page px-4 py-2.5 focus-within:border-teal/60">
+                <input
+                  id="calc-horas"
+                  type="number"
+                  inputmode="numeric"
+                  min="1"
+                  max="80"
+                  step="1"
+                  value="12"
+                  class="w-full bg-transparent text-base font-semibold text-dark tabular-nums outline-none"
+                />
+                <span class="ml-2 text-sm text-subtle">horas</span>
+              </div>
+            </label>
+
+            <label class="block">
+              <span class="text-sm font-medium text-body">Quantos planejamentos você entrega por mês?</span>
+              <div class="mt-1.5 flex items-center rounded-lg border border-border-soft bg-bg-page px-4 py-2.5 focus-within:border-teal/60">
+                <input
+                  id="calc-planos"
+                  type="number"
+                  inputmode="numeric"
+                  min="1"
+                  max="100"
+                  step="1"
+                  value="4"
+                  class="w-full bg-transparent text-base font-semibold text-dark tabular-nums outline-none"
+                />
+                <span class="ml-2 text-sm text-subtle">/mês</span>
+              </div>
+            </label>
+
+            <label class="block">
+              <span class="text-sm font-medium text-body">Aumento de ticket esperado com material profissional</span>
+              <div class="mt-1.5 flex items-center gap-3 rounded-lg border border-border-soft bg-bg-page px-4 py-2.5 focus-within:border-teal/60">
+                <input
+                  id="calc-aumento-ticket"
+                  type="range"
+                  min="0"
+                  max="50"
+                  step="5"
+                  value="20"
+                  class="flex-1 accent-teal"
+                />
+                <div class="flex items-baseline gap-1 tabular-nums">
+                  <span id="calc-aumento-ticket-value" class="text-base font-semibold text-dark">20</span>
+                  <span class="text-sm text-subtle">%</span>
+                </div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        {/* OUTPUTS — 4 passos paralelos à calculadora do Assessor */}
+        <div class="rounded-2xl border border-teal/30 bg-dark p-6 text-white shadow-[0_24px_60px_-24px_rgba(13,148,136,0.4)]">
+          <div class="text-[11px] font-semibold uppercase tracking-[0.15em] text-teal-light">Resultado</div>
+
+          <div class="mt-4 space-y-5">
+
+            {/* PASSO 1 — DOR: Tempo (HOJE vs COM AXION + DELTA) */}
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="inline-flex h-5 w-5 flex-none items-center justify-center rounded-full text-[10px] font-bold" style="background:#FCA5A5;color:#7F1D1D">1</span>
+                <span class="text-[11px] font-medium uppercase tracking-wider" style="color:#FCA5A5">Tempo em trabalho braçal</span>
+              </div>
+              <div class="mt-2 grid grid-cols-2 gap-2 pl-7">
+                <div class="rounded-lg border border-white/10 bg-white/[0.03] p-3">
+                  <div class="text-[10px] font-medium uppercase tracking-wider text-slate-soft">Hoje</div>
+                  <div class="mt-0.5 text-lg font-bold tabular-nums" style="color:#FCA5A5" id="calc-out-dias-hoje">72 dias/ano</div>
+                  <div class="text-[10px] text-slate-soft/80" id="calc-out-horas-hoje">576h/ano</div>
+                </div>
+                <div class="rounded-lg border border-teal/30 bg-teal/[0.08] p-3">
+                  <div class="text-[10px] font-medium uppercase tracking-wider text-teal-light">Com Karteo</div>
+                  <div class="mt-0.5 text-lg font-bold tabular-nums text-teal-light" id="calc-out-dias-karteo">9 dias/ano</div>
+                  <div class="text-[10px] text-slate-soft/80" id="calc-out-horas-karteo-tempo">72h/ano</div>
+                </div>
+              </div>
+              <div class="mt-2 pl-7 text-[12px] font-semibold text-teal-light">
+                ↳ Você recupera <span id="calc-out-dias-recuperados" class="tabular-nums">63 dias úteis/ano</span> <span class="font-normal text-slate-soft" id="calc-out-semanas-recuperadas">(≈12 semanas livres)</span>
+              </div>
+            </div>
+
+            {/* PASSO 2 — STATUS: Valor da hora (HOJE vs COM AXION + MULT) */}
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="inline-flex h-5 w-5 flex-none items-center justify-center rounded-full bg-teal-light text-[10px] font-bold text-dark">2</span>
+                <span class="text-[11px] font-medium uppercase tracking-wider text-teal-light">Quanto vale sua hora</span>
+              </div>
+              <div class="mt-2 grid grid-cols-2 gap-2 pl-7">
+                <div class="rounded-lg border border-white/10 bg-white/[0.03] p-3">
+                  <div class="text-[10px] font-medium uppercase tracking-wider text-slate-soft">Hoje</div>
+                  <div class="mt-0.5 text-lg font-bold tabular-nums text-white" id="calc-out-hora-hoje">R$ 416,67</div>
+                  <div class="text-[10px] text-slate-soft/80">/hora</div>
+                </div>
+                <div class="rounded-lg border border-teal/30 bg-teal/[0.08] p-3">
+                  <div class="text-[10px] font-medium uppercase tracking-wider text-teal-light">Com Karteo</div>
+                  <div class="mt-0.5 text-lg font-bold tabular-nums text-teal-light" id="calc-out-hora-karteo">R$ 3.333,33</div>
+                  <div class="text-[10px] text-slate-soft/80">/hora</div>
+                </div>
+              </div>
+              <div class="mt-2 pl-7 text-[12px] font-semibold text-teal-light">
+                ↳ Sua hora vale <span id="calc-out-mult" class="tabular-nums">8,0×</span> mais com Karteo
+              </div>
+            </div>
+
+            {/* PASSO 3 — CUSTO */}
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="inline-flex h-5 w-5 flex-none items-center justify-center rounded-full bg-white/10 text-[10px] font-bold text-white">3</span>
+                <span class="text-[11px] font-medium uppercase tracking-wider text-slate-soft">Investimento Karteo Pro</span>
+              </div>
+              <div class="mt-1 flex items-baseline gap-2 pl-7">
+                <span class="text-xl font-bold tabular-nums text-white">R$ 5.964,00</span>
+                <span class="text-xs text-slate-soft">/ano · R$ 497/mês</span>
+              </div>
+            </div>
+
+            <div class="h-px bg-white/15"></div>
+
+            {/* PASSO 4 — HERÓI: Receita (HOJE vs COM AXION + DELTA) */}
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="inline-flex h-5 w-5 flex-none items-center justify-center rounded-full bg-teal text-[10px] font-bold text-white">4</span>
+                <span class="text-[11px] font-medium uppercase tracking-wider text-teal-light">Sua receita anual</span>
+              </div>
+              <div class="mt-2 grid grid-cols-3 gap-2 pl-7">
+                <div class="rounded-lg border border-white/10 bg-white/[0.03] p-3">
+                  <div class="text-[10px] font-medium uppercase tracking-wider text-slate-soft">Hoje</div>
+                  <div class="mt-0.5 text-base font-bold tabular-nums text-white" id="calc-out-receita-hoje">R$ 240.000</div>
+                </div>
+                <div class="rounded-lg border border-teal/30 bg-teal/[0.08] p-3">
+                  <div class="text-[10px] font-medium uppercase tracking-wider text-teal-light">Com Karteo</div>
+                  <div class="mt-0.5 text-base font-bold tabular-nums text-teal-light" id="calc-out-receita-potencial">R$ 288.000</div>
+                </div>
+                <div class="rounded-lg border-2 p-3" style="border-color:#16A34A;background:rgba(22,163,74,0.1)">
+                  <div class="text-[10px] font-medium uppercase tracking-wider" style="color:#86EFAC">Sobra no bolso</div>
+                  <div class="mt-0.5 text-base font-bold tabular-nums" style="color:#86EFAC" id="calc-out-delta-receita">+ R$ 42.036</div>
+                  <div class="text-[11px] text-slate-soft" id="calc-out-sobra-detalhe">já descontado Karteo</div>
+                </div>
+              </div>
+            </div>
+
+            {/* DIAGNÓSTICO — golpe de mestre: tempo + dinheiro juntos (já líquido) */}
+            <div class="rounded-lg p-4 text-sm leading-relaxed" style="background:rgba(22,163,74,0.12);border:1px solid rgba(22,163,74,0.3)">
+              <span class="text-teal-light font-semibold">Diagnóstico:</span>
+              <span class="text-white" id="calc-out-diag"><strong>+ R$ 42.036 limpos</strong> no seu bolso (já descontado o Karteo) <em>e</em> <strong>63 dias úteis</strong> de volta no calendário. ROI <strong>7,0×</strong> só em dinheiro — o tempo é bônus.</span>
+            </div>
+
+            <p class="text-xs leading-relaxed text-slate-soft">
+              Premissa: 1h30 por planejamento (tempo médio real com Karteo). Aumento de ticket é hipótese controlada por você no slider — calculadora mostra teto, não garantia.
+            </p>
+
+          </div>
+        </div>
+
+      </div>
+
+      {/* === CALCULADORA DE CHURN: Assessor === */}
+      <div id="calc-churn" class="mt-12 grid gap-8 lg:grid-cols-2">
+
+        {/* INPUTS */}
+        <div class="rounded-2xl border border-border-soft bg-surface p-6 shadow-[0_12px_40px_-24px_rgba(26,26,46,0.18)]">
+          <div class="text-[11px] font-semibold uppercase tracking-[0.15em] text-subtle">Seus dados</div>
+
+          <div class="mt-4 space-y-4">
+            <label class="block">
+              <span class="text-sm font-medium text-body">AUM total da sua base</span>
+              <div class="mt-1.5 flex items-center rounded-lg border border-border-soft bg-bg-page px-4 py-2.5 focus-within:border-teal/60">
+                <span class="text-sm text-subtle">R$</span>
+                <input
+                  id="calc-aum"
+                  type="text"
+                  inputmode="numeric"
+                  placeholder="Ex.: 27.000.000"
+                  class="ml-2 w-full bg-transparent text-base font-semibold text-dark tabular-nums outline-none"
+                />
+              </div>
+            </label>
+
+            <label class="block">
+              <span class="text-sm font-medium text-body">Quantos clientes você atende?</span>
+              <div class="mt-1.5 flex items-center rounded-lg border border-border-soft bg-bg-page px-4 py-2.5 focus-within:border-teal/60">
+                <input
+                  id="calc-clientes"
+                  type="number"
+                  inputmode="numeric"
+                  min="1"
+                  max="500"
+                  step="1"
+                  placeholder="Ex.: 90"
+                  class="w-full bg-transparent text-base font-semibold text-dark tabular-nums outline-none"
+                />
+                <span class="ml-2 text-sm text-subtle">clientes</span>
+              </div>
+            </label>
+
+            <label class="block">
+              <span class="text-sm font-medium text-body">Churn anual atual</span>
+              <div class="mt-1.5 flex items-center rounded-lg border border-border-soft bg-bg-page px-4 py-2.5 focus-within:border-teal/60">
+                <input
+                  id="calc-churn-pct"
+                  type="number"
+                  inputmode="numeric"
+                  min="1"
+                  max="50"
+                  step="1"
+                  value="15"
+                  class="w-full bg-transparent text-base font-semibold text-dark tabular-nums outline-none"
+                />
+                <span class="ml-2 text-sm text-subtle">% /ano</span>
+              </div>
+            </label>
+
+            <label class="block">
+              <span class="text-sm font-medium text-body">ROA atual</span>
+              <div class="mt-1.5 flex items-center rounded-lg border border-border-soft bg-bg-page px-4 py-2.5 focus-within:border-teal/60">
+                <input
+                  id="calc-roa"
+                  type="number"
+                  inputmode="decimal"
+                  min="0.1"
+                  max="5"
+                  step="0.1"
+                  value="1.0"
+                  class="w-full bg-transparent text-base font-semibold text-dark tabular-nums outline-none"
+                />
+                <span class="ml-2 whitespace-nowrap text-sm text-subtle">% a.a.</span>
+              </div>
+            </label>
+
+            <label class="block">
+              <span class="text-sm font-medium text-body">% de repasse pra você</span>
+              <div class="mt-1.5 flex items-center rounded-lg border border-border-soft bg-bg-page px-4 py-2.5 focus-within:border-teal/60">
+                <input
+                  id="calc-repasse"
+                  type="number"
+                  inputmode="numeric"
+                  min="10"
+                  max="100"
+                  step="5"
+                  value="50"
+                  class="w-full bg-transparent text-base font-semibold text-dark tabular-nums outline-none"
+                />
+                <span class="ml-2 text-sm text-subtle">%</span>
+              </div>
+            </label>
+
+            <label class="block">
+              <span class="text-sm font-medium text-body">Redução de churn esperada com planejamento</span>
+              <div class="mt-1.5 flex items-center gap-3 rounded-lg border border-border-soft bg-bg-page px-4 py-2.5 focus-within:border-teal/60">
+                <input
+                  id="calc-reducao"
+                  type="range"
+                  min="10"
+                  max="50"
+                  step="5"
+                  value="30"
+                  class="flex-1 accent-teal"
+                />
+                <div class="flex items-baseline gap-1 tabular-nums">
+                  <span id="calc-reducao-value" class="text-base font-semibold text-dark">30</span>
+                  <span class="text-sm text-subtle">%</span>
+                </div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        {/* OUTPUTS */}
+        <div class="rounded-2xl border border-teal/30 bg-dark p-6 text-white shadow-[0_24px_60px_-24px_rgba(13,148,136,0.4)]">
+          <div class="text-[11px] font-semibold uppercase tracking-[0.15em] text-teal-light">Resultado</div>
+
+          {/* Estado vazio (default — antes de preencher AUM e Clientes) */}
+          <div id="calc-empty-state" class="mt-6 flex flex-col items-center justify-center py-10 text-center">
+            <div class="text-5xl">↖️</div>
+            <p class="mt-4 max-w-xs text-sm leading-relaxed text-slate-soft">
+              Preencha <span class="font-semibold text-white">AUM total</span> e <span class="font-semibold text-white">número de clientes</span> ao lado pra ver quanto o churn está custando pra você.
+            </p>
+          </div>
+
+          {/* Conteúdo (aparece quando há dados) */}
+          <div id="calc-content" class="mt-4 space-y-5" style="display:none">
+
+            {/* PASSO 1 — DOR */}
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="inline-flex h-5 w-5 flex-none items-center justify-center rounded-full text-[10px] font-bold" style="background:#FCA5A5;color:#7F1D1D">1</span>
+                <span class="text-[11px] font-medium uppercase tracking-wider" style="color:#FCA5A5">Você perde por churn hoje</span>
+              </div>
+              <div class="mt-1 flex items-baseline gap-2 pl-7">
+                <span class="text-2xl font-bold tabular-nums" style="color:#FCA5A5" id="calc-out-perda">R$ 0,00</span>
+                <span class="text-xs text-slate-soft">/ano</span>
+              </div>
+            </div>
+
+            {/* PASSO 2 — MITIGAÇÃO */}
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="inline-flex h-5 w-5 flex-none items-center justify-center rounded-full bg-teal-light text-[10px] font-bold text-dark">2</span>
+                <span class="text-[11px] font-medium uppercase tracking-wider text-teal-light">Sua premissa: <span id="calc-out-reducao-label" class="font-bold">30%</span> menos churn com planejamento</span>
+              </div>
+              <div class="mt-1 flex items-baseline gap-2 pl-7">
+                <span class="text-2xl font-bold tabular-nums text-teal-light" id="calc-out-protegida">R$ 0,00</span>
+                <span class="text-xs text-slate-soft">/ano protegidos</span>
+              </div>
+            </div>
+
+            {/* PASSO 3 — CUSTO */}
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="inline-flex h-5 w-5 flex-none items-center justify-center rounded-full bg-white/10 text-[10px] font-bold text-white">3</span>
+                <span class="text-[11px] font-medium uppercase tracking-wider text-slate-soft">Investimento no Karteo Pro</span>
+              </div>
+              <div class="mt-1 flex items-baseline gap-2 pl-7">
+                <span class="text-2xl font-bold tabular-nums text-white">R$ 5.964,00</span>
+                <span class="text-xs text-slate-soft">/ano · R$ 497/mês</span>
+              </div>
+            </div>
+
+            <div class="h-px bg-white/15"></div>
+
+            {/* PASSO 4 — HERÓI */}
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="inline-flex h-5 w-5 flex-none items-center justify-center rounded-full bg-teal text-[10px] font-bold text-white">4</span>
+                <span class="text-[11px] font-medium uppercase tracking-wider text-teal-light">Sua sobra no bolso</span>
+              </div>
+              <div class="mt-2 flex items-baseline gap-2 pl-7">
+                <span class="text-5xl font-bold tabular-nums text-teal-light leading-none" id="calc-out-sobra">R$ 0,00</span>
+                <span class="text-sm text-teal-light/80">/ano</span>
+              </div>
+            </div>
+
+            {/* DIAGNÓSTICO — átomos alinhados com Planejador (verde de "sobra/ganho") */}
+            <div class="rounded-lg p-4 text-sm leading-relaxed" style="background:rgba(22,163,74,0.12);border:1px solid rgba(22,163,74,0.3)">
+              <span class="text-teal-light font-semibold">Diagnóstico:</span>
+              <span class="text-white" id="calc-out-diag-churn">Preencha seus dados pra ver o diagnóstico personalizado.</span>
+            </div>
+
+            <p class="text-xs leading-relaxed text-slate-soft">
+              E não é só isso: captar um cliente novo custa de 5× a 25× mais que reter um existente
+              (<span class="italic">Bain &amp; Company</span>). O número real é sempre maior que o acima.<br>
+              <span class="opacity-80">Premissa que você mesmo escolheu no slider acima. Captar novo cliente custa muito mais que reter (Reichheld / Bain / HBR).</span>
+            </p>
+
+          </div>
+        </div>
+
+      </div>
+
+      {/* === LEAD MAGNET (só aparece pro perfil Assessor, depois de preencher os dados) === */}
+      <div id="calc-churn-lead" class="mx-auto mt-10 max-w-2xl">
+        <div class="rounded-2xl border border-teal/20 bg-teal-pale/30 p-8">
+
+          {/* Estado inicial: form */}
+          <div id="lead-form-state">
+            <div class="text-center">
+              <div class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-teal/10 text-teal">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>
+              </div>
+              <h3 class="mt-3 text-xl font-bold tracking-tight text-dark">Quer levar esse diagnóstico pro seu email?</h3>
+              <p class="mt-2 text-sm leading-relaxed text-subtle">
+                Mando uma versão expandida com 3 cenários (carteira atual, +20%, +50%) e o estudo
+                clássico do HBR/Bain sobre o custo real de captar vs reter cliente.
+              </p>
+            </div>
+
+            <form id="lead-form" class="mt-6 space-y-3" novalidate>
+              <div class="grid gap-3 sm:grid-cols-2">
+                <input
+                  type="text"
+                  id="lead-nome"
+                  required
+                  placeholder="Seu primeiro nome"
+                  class="rounded-lg border border-border-soft bg-surface px-4 py-3 text-sm font-medium text-dark outline-none transition focus:border-teal/60"
+                />
+                <input
+                  type="email"
+                  id="lead-email"
+                  required
+                  placeholder="seu@email.com"
+                  class="rounded-lg border border-border-soft bg-surface px-4 py-3 text-sm font-medium text-dark outline-none transition focus:border-teal/60"
+                />
+              </div>
+              <button
+                type="submit"
+                id="lead-submit"
+                class="w-full rounded-lg bg-teal px-5 py-3 text-sm font-semibold text-white transition hover:bg-teal-hover disabled:opacity-50"
+              >
+                Quero receber por email
+              </button>
+              <p class="text-center text-[11px] text-muted">
+                Sem spam. Sem newsletter automática. Apenas esse diagnóstico.
+              </p>
+            </form>
+          </div>
+
+          {/* Estado de sucesso */}
+          <div id="lead-success-state" style="display:none" class="py-4 text-center">
+            <div class="inline-flex h-12 w-12 items-center justify-center rounded-full bg-success/10 text-success">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h3 class="mt-3 text-xl font-bold tracking-tight text-dark">Email a caminho!</h3>
+            <p class="mt-2 text-sm leading-relaxed text-subtle">
+              Confere sua caixa em alguns minutos (e o spam, por garantia).
+              Se quiser falar agora, responde direto o email que vai chegar.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="mx-auto mt-10 max-w-2xl text-center">
+        <p class="text-sm text-subtle">
+          <span data-profile-copy data-for="planejador"><span class="font-semibold text-body">Karteo é a sua ferramenta de trabalho</span> — assim como o serrote é pro marceneiro. Sem ela, você vende horas. Com ela, você vende resultados.</span>
+          <span data-profile-copy data-for="consultor"><span class="font-semibold text-body">Karteo é a sua ferramenta de trabalho</span> — assim como o serrote é pro marceneiro. Sem ela, você vende horas. Com ela, você vende recorrência.</span>
+          <span data-profile-copy data-for="assessor"><span class="font-semibold text-body">Karteo é a âncora do relacionamento</span> — material profissional que faz o cliente ficar e o AUM crescer. Reter cliente é estruturalmente mais barato e mais lucrativo que captar (Reichheld / Bain / HBR).</span>
+          <span data-profile-copy data-for="outro"><span class="font-semibold text-body">Karteo é a sua ferramenta de trabalho</span> — assim como o serrote é pro marceneiro. Sem ela, você vende horas. Com ela, você vende resultados.</span>
+        </p>
+        <a href="#precos" class="mt-6 inline-flex items-center gap-2 rounded-lg bg-teal px-6 py-3 text-sm font-semibold text-white transition hover:bg-teal-hover">
+          Ver planos →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO ALTERNADA 1: MATERIAL (Cobre mais) -->
+  <section id="pilar-01" class="border-t border-border-soft bg-surface py-24">
+    <div class="mx-auto max-w-[1320px] px-6">
+      <div class="grid items-center gap-14 lg:grid-cols-2">
+        <div class="order-2 lg:order-1">
+          <div class="relative mx-auto w-full max-w-[520px]" style="aspect-ratio:1/1.15">
+
+            {/* Página de fundo (direita) — Proteção + Alocação */}
+            <img
+              src="/images/report/page-09.png"
+              alt="Página do relatório — Proteção Patrimonial e Alocação"
+              loading="lazy"
+              class="absolute right-0 top-[8%] w-[56%] rotate-[5deg] rounded-lg border border-border-soft bg-surface shadow-[0_12px_32px_-16px_rgba(26,26,46,0.22)]"
+            />
+
+            {/* Página do meio (esquerda) — Cenário Otimista */}
+            <img
+              src="/images/report/page-07.png"
+              alt="Página do relatório — Cenário de Aposentadoria"
+              loading="lazy"
+              class="absolute left-0 top-[4%] w-[60%] -rotate-[4deg] rounded-lg border border-border-soft bg-surface shadow-[0_14px_36px_-18px_rgba(26,26,46,0.28)]"
+            />
+
+            {/* Capa (frente) */}
+            <img
+              src="/images/report/page-01-ricardo.png"
+              alt="Capa do relatório Karteo — Ricardo Mendes da Silva"
+              loading="eager"
+              class="absolute left-1/2 top-0 w-[66%] -translate-x-1/2 rounded-lg border border-dark/20 shadow-[0_28px_70px_-24px_rgba(26,26,46,0.55)]"
+            />
+          </div>
+        </div>
+
+        <div class="order-1 lg:order-2">
+          <div class="mb-5 inline-flex items-center gap-3">
+            <span class="text-sm font-semibold text-teal tabular-nums">01</span>
+            <span class="h-px w-8 bg-teal/40"></span>
+            <span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-teal">Cobre mais</span>
+          </div>
+          <h2 class="text-3xl font-bold tracking-tight text-dark md:text-4xl">
+            <span data-profile-copy data-for="planejador">Um material tão profissional que o cliente não questiona o ticket</span>
+            <span data-profile-copy data-for="consultor">Um material tão profissional que o cliente renova sem pensar</span>
+            <span data-profile-copy data-for="assessor">Um material tão profissional que o cliente não procura outro assessor</span>
+            <span data-profile-copy data-for="outro">Um material tão profissional que justifica qualquer relação comercial</span>
+          </h2>
+          <p class="mt-5 text-lg leading-relaxed text-subtle">
+            <span data-profile-copy data-for="planejador">Planejamento no padrão family office, com a marca do seu escritório. O cliente percebe o nível da entrega na primeira página — e o preço deixa de ser o assunto da reunião.</span>
+            <span data-profile-copy data-for="consultor">Planejamento no padrão family office, com sua marca. Quem entrega isso anualmente não perde cliente para concorrente.</span>
+            <span data-profile-copy data-for="assessor">Planejamento no padrão family office, com sua marca. Você não cobra por ele — mas é ele que ancora o relacionamento e protege o AUM.</span>
+            <span data-profile-copy data-for="outro">Planejamento no padrão family office, com sua marca. Material que vende a competência antes de você abrir a boca.</span>
+          </p>
+          <ul class="mt-6 space-y-3 text-sm text-body">
+            <li class="flex gap-3"><Icon name="check" class="h-5 w-5 flex-none text-teal" /> PDF white-label com sua identidade</li>
+            <li class="flex gap-3"><Icon name="check" class="h-5 w-5 flex-none text-teal" /> Metodologia proprietária visível no relatório</li>
+            <li class="flex gap-3"><Icon name="check" class="h-5 w-5 flex-none text-teal" /> Gráficos e projeções que vendem o plano</li>
+          </ul>
+        </div>
+      </div>
+
+      {/* Faixa-sumário: o que o relatório cobre */}
+      <div class="mt-24">
+        <div class="mx-auto max-w-2xl text-center">
+          <div class="text-[11px] font-semibold uppercase tracking-[0.2em] text-teal">Sumário do relatório</div>
+          <h3 class="mt-2 text-2xl font-bold tracking-tight text-dark">
+            Um documento completo em <span class="text-teal">5 capítulos</span>
+          </h3>
+          <p class="mt-3 text-sm text-subtle">
+            Cada área recebe um capítulo dedicado, com diagnóstico, recomendação e plano de ação.
+          </p>
+        </div>
+
+        <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+          <div class="group rounded-xl border border-border-soft bg-surface p-5 transition hover:border-teal/40 hover:-translate-y-0.5">
+            <div class="flex items-start justify-between">
+              <div class="flex h-11 w-11 items-center justify-center rounded-lg bg-teal-pale text-teal">
+                <Icon name="wallet" class="h-5 w-5" />
+              </div>
+              <span class="text-[10px] font-semibold text-muted tabular-nums">pp. 4–7</span>
+            </div>
+            <h4 class="mt-4 text-sm font-bold text-dark">Fluxo de caixa</h4>
+            <p class="mt-1.5 text-xs leading-relaxed text-subtle">Receitas, despesas e gap mensal com diagnóstico de sobra.</p>
+          </div>
+
+          <div class="group rounded-xl border border-border-soft bg-surface p-5 transition hover:border-teal/40 hover:-translate-y-0.5">
+            <div class="flex items-start justify-between">
+              <div class="flex h-11 w-11 items-center justify-center rounded-lg bg-teal-pale text-teal">
+                <Icon name="target" class="h-5 w-5" />
+              </div>
+              <span class="text-[10px] font-semibold text-muted tabular-nums">pp. 8–12</span>
+            </div>
+            <h4 class="mt-4 text-sm font-bold text-dark">Objetivos de vida</h4>
+            <p class="mt-1.5 text-xs leading-relaxed text-subtle">Metas com horizonte, prioridade e alocação sugerida.</p>
+          </div>
+
+          <div class="group rounded-xl border border-border-soft bg-surface p-5 transition hover:border-teal/40 hover:-translate-y-0.5">
+            <div class="flex items-start justify-between">
+              <div class="flex h-11 w-11 items-center justify-center rounded-lg bg-teal-pale text-teal">
+                <Icon name="trending" class="h-5 w-5" />
+              </div>
+              <span class="text-[10px] font-semibold text-muted tabular-nums">pp. 13–19</span>
+            </div>
+            <h4 class="mt-4 text-sm font-bold text-dark">Investimentos</h4>
+            <p class="mt-1.5 text-xs leading-relaxed text-subtle">Classificação, diversificação e alocação recomendada.</p>
+          </div>
+
+          <div class="group rounded-xl border border-border-soft bg-surface p-5 transition hover:border-teal/40 hover:-translate-y-0.5">
+            <div class="flex items-start justify-between">
+              <div class="flex h-11 w-11 items-center justify-center rounded-lg bg-teal-pale text-teal">
+                <Icon name="clock" class="h-5 w-5" />
+              </div>
+              <span class="text-[10px] font-semibold text-muted tabular-nums">pp. 20–25</span>
+            </div>
+            <h4 class="mt-4 text-sm font-bold text-dark">Aposentadoria</h4>
+            <p class="mt-1.5 text-xs leading-relaxed text-subtle">Patrimônio-alvo, aporte mensal e diagnóstico do ritmo de poupança.</p>
+          </div>
+
+          <div class="group rounded-xl border border-border-soft bg-surface p-5 transition hover:border-teal/40 hover:-translate-y-0.5">
+            <div class="flex items-start justify-between">
+              <div class="flex h-11 w-11 items-center justify-center rounded-lg bg-teal-pale text-teal">
+                <Icon name="shield" class="h-5 w-5" />
+              </div>
+              <span class="text-[10px] font-semibold text-muted tabular-nums">pp. 26–32</span>
+            </div>
+            <h4 class="mt-4 text-sm font-bold text-dark">Proteção</h4>
+            <p class="mt-1.5 text-xs leading-relaxed text-subtle">Cobertura atual, gaps e recomendações de blindagem.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO ALTERNADA 2: AUTOMAÇÃO (Trabalhe menos) -->
+  <section class="border-t border-border-soft bg-bg-page py-24">
+    <div class="mx-auto grid max-w-[1320px] items-center gap-14 px-6 lg:grid-cols-2">
+      <div>
+        <div class="mb-5 inline-flex items-center gap-3">
+          <span class="text-sm font-semibold text-teal tabular-nums">02</span>
+          <span class="h-px w-8 bg-teal/40"></span>
+          <span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-teal">Trabalhe menos</span>
+        </div>
+        <h2 class="text-3xl font-bold tracking-tight text-dark md:text-4xl">
+          Um fluxo que monta o plano por você, em menos de uma hora
+        </h2>
+        <p class="mt-5 text-lg leading-relaxed text-subtle">
+          Oito etapas guiadas — do cadastro à alocação final — com cálculos
+          automáticos em cada passo. Sem planilha auxiliar, sem retrabalho,
+          sem ficar traduzindo números entre abas. O relatório sai formatado
+          no fim.
+        </p>
+        <ul class="mt-6 space-y-3 text-sm text-body">
+          <li class="flex gap-3"><Icon name="check" class="h-5 w-5 flex-none text-teal" /> Fluxo guiado em 8 passos, com validação automática a cada etapa</li>
+          <li class="flex gap-3"><Icon name="check" class="h-5 w-5 flex-none text-teal" /> Patrimônio-alvo, aporte mensal e alocação calculados pra você</li>
+          <li class="flex gap-3"><Icon name="check" class="h-5 w-5 flex-none text-teal" /> PDF profissional gerado em um clique, sem ajuste manual</li>
+        </ul>
+      </div>
+      <div>
+        <DashboardMockup variant="wizard" />
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO ALTERNADA 3: EXECUÇÃO (Entregue melhor) -->
+  <section class="border-t border-border-soft bg-surface py-24">
+    <div class="mx-auto grid max-w-[1320px] items-center gap-14 px-6 lg:grid-cols-2">
+      <div class="order-2 lg:order-1">
+        <DashboardMockup variant="retirement" />
+      </div>
+      <div class="order-1 lg:order-2">
+        <div class="mb-5 inline-flex items-center gap-3">
+          <span class="text-sm font-semibold text-teal tabular-nums">03</span>
+          <span class="h-px w-8 bg-teal/40"></span>
+          <span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-teal">Entregue melhor</span>
+        </div>
+        <h2 class="text-3xl font-bold tracking-tight text-dark md:text-4xl">
+          Um plano que o cliente executa — e volta pra acompanhar
+        </h2>
+        <p class="mt-5 text-lg leading-relaxed text-subtle">
+          Cada objetivo vira passos claros com prazo e alocação. O cliente sai
+          da reunião sabendo o que fazer na segunda de manhã, e volta na próxima
+          revisão pra ver se está no ritmo, adiantado ou atrasado.
+        </p>
+        <ul class="mt-6 space-y-3 text-sm text-body">
+          <li class="flex gap-3"><Icon name="check" class="h-5 w-5 flex-none text-teal" /> Plano de execução específico por objetivo</li>
+          <li class="flex gap-3"><Icon name="check" class="h-5 w-5 flex-none text-teal" /> Diagnóstico visual: adiantado, no ritmo ou atrasado</li>
+          <li class="flex gap-3"><Icon name="check" class="h-5 w-5 flex-none text-teal" /> Patrimônio-alvo de aposentadoria atualizado pela inflação oficial (IPCA)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA -->
+  <section id="como-funciona" class="border-t border-border-soft bg-bg-page py-24">
+    <div class="mx-auto max-w-[1320px] px-6">
+      <div class="mx-auto max-w-2xl text-center">
+        <div class="mb-3 text-xs font-semibold uppercase tracking-[0.1em] text-teal">Como funciona</div>
+        <h2 class="text-4xl font-bold tracking-tight text-dark">
+          Do cadastro ao PDF, sem sair do fluxo
+        </h2>
+        <p class="mt-4 text-base leading-relaxed text-subtle">
+          As 8 etapas guiadas do Karteo, do seu lado, se resumem a quatro movimentos.
+        </p>
+      </div>
+
+      <div class="mt-16 grid gap-6 md:grid-cols-4">
+        <div class="rounded-2xl border border-border-soft bg-surface p-6">
+          <div class="text-4xl font-bold text-teal/30">01</div>
+          <h3 class="mt-3 text-sm font-semibold text-dark">Cadastre o cliente</h3>
+          <p class="mt-2 text-xs leading-relaxed text-subtle">Dados básicos, dependentes e perfil de risco.</p>
+        </div>
+        <div class="rounded-2xl border border-border-soft bg-surface p-6">
+          <div class="text-4xl font-bold text-teal/30">02</div>
+          <h3 class="mt-3 text-sm font-semibold text-dark">Importe extratos</h3>
+          <p class="mt-2 text-xs leading-relaxed text-subtle">Upload dos PDFs das corretoras, de uma vez só.</p>
+        </div>
+        <div class="rounded-2xl border border-border-soft bg-surface p-6">
+          <div class="text-4xl font-bold text-teal/30">03</div>
+          <h3 class="mt-3 text-sm font-semibold text-dark">Defina objetivos</h3>
+          <p class="mt-2 text-xs leading-relaxed text-subtle">Aposentadoria, imóvel, educação dos filhos.</p>
+        </div>
+        <div class="rounded-2xl border border-border-soft bg-surface p-6">
+          <div class="text-4xl font-bold text-teal/30">04</div>
+          <h3 class="mt-3 text-sm font-semibold text-dark">Exporte o PDF</h3>
+          <p class="mt-2 text-xs leading-relaxed text-subtle">Relatório completo, pronto para entrega.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- PREÇOS -->
+  <section id="precos" class="border-t border-border-soft bg-surface py-24">
+    <div class="mx-auto max-w-[1200px] px-6">
+
+      {/* Toggle de perfil profissional */}
+      <div class="mx-auto mb-10 max-w-2xl text-center">
+        <div class="mb-3 text-[11px] font-semibold uppercase tracking-[0.15em] text-subtle">Você é</div>
+        <div role="radiogroup" aria-label="Perfil profissional" class="flex flex-wrap justify-center gap-2">
+          <button
+            type="button"
+            role="radio"
+            aria-checked="true"
+            data-profile-toggle="planejador"
+            class="profile-pill rounded-full border border-border-soft bg-surface px-4 py-2 text-sm font-medium text-subtle transition hover:border-teal/40 aria-checked:border-teal aria-checked:bg-teal-pale aria-checked:text-teal"
+          >Planejador</button>
+          <button
+            type="button"
+            role="radio"
+            aria-checked="false"
+            data-profile-toggle="consultor"
+            class="profile-pill rounded-full border border-border-soft bg-surface px-4 py-2 text-sm font-medium text-subtle transition hover:border-teal/40 aria-checked:border-teal aria-checked:bg-teal-pale aria-checked:text-teal"
+          >Consultor</button>
+          <button
+            type="button"
+            role="radio"
+            aria-checked="false"
+            data-profile-toggle="assessor"
+            class="profile-pill rounded-full border border-border-soft bg-surface px-4 py-2 text-sm font-medium text-subtle transition hover:border-teal/40 aria-checked:border-teal aria-checked:bg-teal-pale aria-checked:text-teal"
+          >Assessor</button>
+          <button
+            type="button"
+            role="radio"
+            aria-checked="false"
+            data-profile-toggle="outro"
+            class="profile-pill rounded-full border border-border-soft bg-surface px-4 py-2 text-sm font-medium text-subtle transition hover:border-teal/40 aria-checked:border-teal aria-checked:bg-teal-pale aria-checked:text-teal"
+          >Outro</button>
+        </div>
+      </div>
+
+      <div class="mx-auto max-w-2xl text-center">
+        <div class="mb-3 text-xs font-semibold uppercase tracking-[0.1em] text-teal">Preços</div>
+        <h2 class="text-4xl font-bold tracking-tight text-dark md:text-5xl">
+          <span data-profile-copy data-for="planejador">O Karteo se paga no <span class="text-teal">primeiro planejamento</span>. O resto do ano é margem.</span>
+          <span data-profile-copy data-for="consultor">1 cliente que renova 12 meses paga <span class="text-teal">2 anos de Karteo</span></span>
+          <span data-profile-copy data-for="assessor">Reter 1 cliente por mais 1 ano paga <span class="text-teal">3 anos de Karteo</span></span>
+          <span data-profile-copy data-for="outro">Cobre como <span class="text-teal">family office</span>. Sem montar família.</span>
+        </h2>
+        <p class="mt-5 text-lg leading-relaxed text-subtle">
+          Você cobra uma vez. <span class="font-semibold text-body">A ferramenta trabalha o ano inteiro.</span>
+        </p>
+      </div>
+
+      <div class="mt-14 grid gap-6 lg:grid-cols-3">
+
+        {/* STARTER */}
+        <div class="relative flex flex-col rounded-2xl border border-border-soft bg-surface p-8 transition hover:border-teal/30">
+          <div>
+            <div class="text-[11px] font-semibold uppercase tracking-[0.15em] text-subtle">Starter</div>
+            <p class="mt-1 text-sm text-muted">
+              Pra quem está aprendendo a fazer planejamento financeiro agora.
+            </p>
+          </div>
+          <div class="mt-6 flex items-baseline gap-1">
+            <span class="text-2xl font-semibold text-dark">R$</span>
+            <span class="text-5xl font-bold tracking-tight text-dark tabular-nums">197</span>
+            <span class="text-sm text-subtle">/mês</span>
+          </div>
+          <p class="mt-1 text-[11px] font-medium text-teal tabular-nums">equivalente a R$ 6,57/dia</p>
+          <p class="mt-2 text-xs text-muted">
+            <span data-profile-copy data-for="planejador">se paga com 1 planejamento de R$ 2.500</span>
+            <span data-profile-copy data-for="consultor">se paga com 1 cliente novo no trimestre</span>
+            <span data-profile-copy data-for="assessor">se paga com R$ 250k de AUM mantido a 1% a.a.</span>
+            <span data-profile-copy data-for="outro">se paga com 1 cliente novo no mês</span>
+          </p>
+
+          <ul class="mt-8 space-y-3 text-sm text-body">
+            <li class="flex gap-2.5"><Icon name="check" class="h-5 w-5 flex-none text-teal" /> Até 5 planejamentos por mês</li>
+            <li class="flex gap-2.5"><Icon name="check" class="h-5 w-5 flex-none text-teal" /> Fluxo guiado do cadastro do cliente até a alocação final</li>
+            <li class="flex items-start gap-2.5"><Icon name="check" class="mt-0.5 h-5 w-5 flex-none text-teal" /><span>PDF profissional <span class="text-muted">(com marca d'água Karteo)</span></span></li>
+            <li class="flex gap-2.5"><Icon name="check" class="h-5 w-5 flex-none text-teal" /> Consolida extratos de 3 corretoras (XP, BTG, Avenue)</li>
+          </ul>
+
+          <a href="https://pay.herospark.com/axion-starter" class="mt-8 inline-flex items-center justify-center rounded-lg border border-border-soft px-5 py-3 text-sm font-semibold text-body transition hover:border-teal/40 hover:bg-bg-page">
+            Quero meu primeiro plano em 1 hora
+          </a>
+        </div>
+
+        {/* PRO — destacado */}
+        <div class="relative flex flex-col rounded-2xl border-2 border-teal bg-surface p-8 shadow-[0_24px_60px_-30px_rgba(13,148,136,0.55)] lg:-mt-4 lg:mb-4">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-teal px-3 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-white">
+            Mais escolhido
+          </div>
+          <div>
+            <div class="text-[11px] font-semibold uppercase tracking-[0.15em] text-teal">Pro</div>
+            <p class="mt-1 text-sm text-muted">
+              Pra quem decidiu parar de tratar planejamento como bico e <strong class="text-body">jogar o jogo de verdade</strong>.
+            </p>
+          </div>
+          <div class="mt-6 flex items-baseline gap-1">
+            <span class="text-2xl font-semibold text-dark">R$</span>
+            <span class="text-5xl font-bold tracking-tight text-dark tabular-nums">497</span>
+            <span class="text-sm text-subtle">/mês</span>
+          </div>
+          <p class="mt-1 text-[11px] font-medium text-teal tabular-nums">equivalente a R$ 16,57/dia</p>
+          <p class="mt-2 text-xs text-muted">
+            <span data-profile-copy data-for="planejador">se paga com 1 planejamento de R$ 6.000</span>
+            <span data-profile-copy data-for="consultor">se paga com 1 cliente que renova por 1 ano</span>
+            <span data-profile-copy data-for="assessor">se paga com R$ 600k de AUM mantido a 1% a.a.</span>
+            <span data-profile-copy data-for="outro">se paga com 1 cliente novo no trimestre</span>
+          </p>
+
+          <div class="mt-6 rounded-lg bg-teal-pale/60 px-4 py-3 text-center text-[13px] font-semibold text-teal">
+            Sem limite de planejamentos. Sem teto.
+          </div>
+
+          {/* Selo Lote de Fundadores — visível só no Pro */}
+          <a href="#lote-fundadores" class="mt-3 flex items-center justify-between gap-2 rounded-lg border border-dashed border-teal/50 bg-teal/5 px-4 py-2.5 text-left transition hover:border-teal hover:bg-teal/10">
+            <div class="flex items-center gap-2">
+              <Icon name="spark" class="h-4 w-4 flex-none text-teal" />
+              <span class="text-[12px] font-semibold text-teal">+ R$ 6.500 em bônus de fundador</span>
+            </div>
+            <span class="text-[11px] font-medium text-teal/80">ver ↓</span>
+          </a>
+
+          <ul class="mt-6 space-y-3 text-sm text-body">
+            <li class="flex gap-2.5"><Icon name="check" class="h-5 w-5 flex-none text-teal" /> Tudo do Starter, sem limite de planejamentos</li>
+            <li class="flex gap-2.5"><Icon name="check" class="h-5 w-5 flex-none text-teal" /> <strong>PDF white-label com a sua marca</strong> (sem marca d'água)</li>
+            <li class="flex gap-2.5"><Icon name="check" class="h-5 w-5 flex-none text-teal" /> Consolida extratos de todas as corretoras</li>
+            <li class="flex gap-2.5"><Icon name="check" class="h-5 w-5 flex-none text-teal" /> Cenários otimistas e personalizados</li>
+            <li class="flex gap-2.5"><Icon name="check" class="h-5 w-5 flex-none text-teal" /> Portal do cliente (Ritmo de Aposentadoria)</li>
+          </ul>
+
+          <a href="https://pay.herospark.com/karteo-pro-521499" class="mt-8 inline-flex items-center justify-center rounded-lg bg-teal px-5 py-3 text-sm font-semibold text-white transition hover:bg-teal-hover">
+            Assinar Pro
+          </a>
+        </div>
+
+        {/* ESCRITÓRIO */}
+        <div class="relative flex flex-col rounded-2xl border border-border-soft bg-surface p-8 transition hover:border-teal/30">
+          <div>
+            <div class="text-[11px] font-semibold uppercase tracking-[0.15em] text-subtle">Escritório</div>
+            <p class="mt-1 text-sm text-muted">
+              <span data-profile-copy data-for="planejador">Pra escritório de planejamento financeiro</span>
+              <span data-profile-copy data-for="consultor">Pra time de consultoria com múltiplos parceiros</span>
+              <span data-profile-copy data-for="assessor">Pra escritório de assessoria de investimento</span>
+              <span data-profile-copy data-for="outro">Pra time que entrega em escala</span>
+            </p>
+          </div>
+          <div class="mt-6 flex items-baseline gap-1">
+            <span class="text-2xl font-semibold text-dark">R$</span>
+            <span class="text-5xl font-bold tracking-tight text-dark tabular-nums">997</span>
+            <span class="text-sm text-subtle">/mês</span>
+          </div>
+          <p class="mt-1 text-[11px] font-medium text-teal tabular-nums">equivalente a R$ 33,23/dia</p>
+          <p class="mt-2 text-xs text-muted">
+            <span data-profile-copy data-for="planejador">se paga com 1 planejamento de R$ 12.000</span>
+            <span data-profile-copy data-for="consultor">se paga com 2 clientes renovando 1 ano</span>
+            <span data-profile-copy data-for="assessor">se paga com R$ 1.2M de AUM retido a 1% a.a.</span>
+            <span data-profile-copy data-for="outro">se paga com 1 cliente premium retido</span>
+          </p>
+
+          <ul class="mt-8 space-y-3 text-sm text-body">
+            <li class="flex gap-2.5"><Icon name="check" class="h-5 w-5 flex-none text-teal" /> Tudo do Pro</li>
+            <li class="flex gap-2.5"><Icon name="check" class="h-5 w-5 flex-none text-teal" /> Até 5 assessores no mesmo escritório</li>
+            <li class="flex gap-2.5"><Icon name="check" class="h-5 w-5 flex-none text-teal" /> Dashboard consolidado da carteira de clientes do escritório</li>
+            <li class="flex gap-2.5"><Icon name="check" class="h-5 w-5 flex-none text-teal" /> Onboarding ao vivo com o time Karteo</li>
+            <li class="flex gap-2.5"><Icon name="check" class="h-5 w-5 flex-none text-teal" /> Gerente de conta dedicado</li>
+          </ul>
+
+          <a href="https://pay.herospark.com/axion-escritorio" class="mt-8 inline-flex items-center justify-center rounded-lg border border-border-soft px-5 py-3 text-sm font-semibold text-body transition hover:border-teal/40 hover:bg-bg-page">
+            Assinar Escritório
+          </a>
+        </div>
+
+      </div>
+
+      {/* === LOTE DE FUNDADORES — lista vertical scaneável === */}
+      <div id="lote-fundadores" class="mx-auto mt-20 max-w-2xl scroll-mt-24">
+
+        {/* Header compacto */}
+        <div class="text-center">
+          <div class="inline-flex items-center gap-2 rounded-full border border-teal/30 bg-teal-pale/60 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.15em] text-teal">
+            <Icon name="spark" class="h-3.5 w-3.5" />
+            Lote de Fundadores · 15 vagas
+          </div>
+          <h3 class="mt-4 text-3xl font-bold tracking-tight text-dark">
+            <span class="text-teal">R$ 6.500</span> em bônus no Ano 1
+          </h3>
+          <p class="mt-3 text-base text-subtle">
+            Para os primeiros 15 assinantes do Karteo Pro (a partir de 10/maio/2026).
+            <br class="hidden sm:inline" />
+            Você recupera o ano inteiro do Karteo só nos bônus.
+          </p>
+        </div>
+
+        {/* Lista vertical de bônus — 1 linha por bônus, valores alinhados à direita */}
+        <ul class="mt-10 divide-y divide-border-soft overflow-hidden rounded-2xl border border-border-soft bg-surface">
+
+          <li class="flex items-center gap-4 p-5">
+            <div class="flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-teal/10 text-teal">
+              <Icon name="trending" class="h-5 w-5" />
+            </div>
+            <div class="min-w-0 flex-1">
+              <div class="text-sm font-bold text-dark">Playbook "Como cobrar R$ 5+ mil por planejamento"</div>
+              <p class="mt-0.5 text-xs text-subtle">Manual + workshop gravado + sessão 1:1 de aplicação no seu pricing.</p>
+            </div>
+            <div class="text-base font-bold tabular-nums text-teal">R$ 2.500</div>
+          </li>
+
+          <li class="flex items-center gap-4 p-5">
+            <div class="flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-teal/10 text-teal">
+              <Icon name="users" class="h-5 w-5" />
+            </div>
+            <div class="min-w-0 flex-1">
+              <div class="text-sm font-bold text-dark">Onboarding 1:1 com o fundador (90min)</div>
+              <p class="mt-0.5 text-xs text-subtle">Rodamos 1 caso real seu ao vivo dentro do Karteo.</p>
+            </div>
+            <div class="text-base font-bold tabular-nums text-teal">R$ 1.500</div>
+          </li>
+
+          <li class="flex items-center gap-4 p-5">
+            <div class="flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-teal/10 text-teal">
+              <Icon name="search" class="h-5 w-5" />
+            </div>
+            <div class="min-w-0 flex-1">
+              <div class="text-sm font-bold text-dark">Diagnóstico ao vivo de 1 cliente seu (60min)</div>
+              <p class="mt-0.5 text-xs text-subtle">Sessão gravada onde reviso pontos fortes e furos do planejamento atual — você fica com o vídeo pra rever.</p>
+            </div>
+            <div class="text-base font-bold tabular-nums text-teal">R$ 1.500</div>
+          </li>
+
+          <li class="flex items-center gap-4 p-5">
+            <div class="flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-teal/10 text-teal">
+              <Icon name="file" class="h-5 w-5" />
+            </div>
+            <div class="min-w-0 flex-1">
+              <div class="text-sm font-bold text-dark">Pacote de templates do meu playbook</div>
+              <p class="mt-0.5 text-xs text-subtle">Script de descoberta, modelo de proposta, planilha de honorários, e-mail de pós-venda.</p>
+            </div>
+            <div class="text-base font-bold tabular-nums text-teal">R$ 500</div>
+          </li>
+
+          <li class="flex items-center gap-4 p-5">
+            <div class="flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-teal/10 text-teal">
+              <Icon name="chat" class="h-5 w-5" />
+            </div>
+            <div class="min-w-0 flex-1">
+              <div class="text-sm font-bold text-dark">WhatsApp para dúvidas operacionais (60 dias)</div>
+              <p class="mt-0.5 text-xs text-subtle">Resposta em até 24h pra dúvida pontual — não é canal de mentoria, é "estou travado em X, me ajuda?".</p>
+            </div>
+            <div class="text-base font-bold tabular-nums text-teal">R$ 500</div>
+          </li>
+
+          {/* Linha-soma — fecha a tabela com destaque */}
+          <li class="flex items-baseline gap-4 bg-teal-pale/40 px-5 py-4">
+            <div class="flex-1 text-sm font-semibold text-dark">Total em bônus</div>
+            <div class="text-2xl font-bold tabular-nums text-teal">R$ 6.500</div>
+          </li>
+
+        </ul>
+
+        <p class="mt-4 text-center text-xs text-muted">
+          Investimento Karteo Pro: R$ 5.964/ano (R$ 497/mês). Ratio bônus:preço de 1,09:1.
+        </p>
+
+      </div>
+
+      {/* === Trust strip — garantia condicional + 15 vagas + Loyalty Bonus === */}
+      <div class="mx-auto mt-16 max-w-5xl">
+        <div class="grid gap-4 rounded-2xl border border-teal/20 bg-teal-pale/30 p-6 sm:grid-cols-3">
+
+          {/* Garantia condicional 30 dias */}
+          <div class="flex items-start gap-3">
+            <div class="flex h-9 w-9 flex-none items-center justify-center rounded-full bg-teal/10 text-teal">
+              <Icon name="shield" class="h-5 w-5" />
+            </div>
+            <div>
+              <div class="text-sm font-bold text-dark">Garantia condicional de 30 dias</div>
+              <p class="mt-1 text-xs leading-relaxed text-subtle">
+                Fez o onboarding 1:1, recebeu o diagnóstico, tentou aplicar com 1 cliente e mesmo assim não fechou? <strong>Devolvemos 100%</strong> após 5 minutos de conversa pra eu entender o que travou.
+              </p>
+            </div>
+          </div>
+
+          {/* 15 vagas a partir de 10/maio/2026 */}
+          <div class="flex items-start gap-3">
+            <div class="flex h-9 w-9 flex-none items-center justify-center rounded-full bg-teal/10 text-teal">
+              <Icon name="layers" class="h-5 w-5" />
+            </div>
+            <div>
+              <div class="text-sm font-bold text-dark">15 vagas de fundador</div>
+              <p class="mt-1 text-xs leading-relaxed text-subtle">
+                Lote inicial aberto a partir de <strong>10 de maio de 2026</strong>. A partir do 16º, novos assinantes recebem só o produto-base, sem bônus.
+              </p>
+            </div>
+          </div>
+
+          {/* Loyalty Bonus mês 13+ */}
+          <div class="flex items-start gap-3">
+            <div class="flex h-9 w-9 flex-none items-center justify-center rounded-full bg-teal/10 text-teal">
+              <Icon name="star" class="h-5 w-5" />
+            </div>
+            <div>
+              <div class="text-sm font-bold text-dark">Loyalty Bonus do ano 2</div>
+              <p class="mt-1 text-xs leading-relaxed text-subtle">
+                Quem renova como fundador no mês 13 ganha: preço travado, 1 sessão estratégica anual comigo e <strong>acesso antecipado a features beta</strong>.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="mx-auto mt-6 max-w-2xl text-center text-sm text-subtle">
+        Pagamento mensal via Herospark. Cancele quando quiser. Nota fiscal automática.
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section id="cta" class="relative overflow-hidden bg-dark">
+    <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,rgba(13,148,136,0.3),transparent_55%),radial-gradient(circle_at_bottom_right,rgba(99,102,241,0.2),transparent_55%)]"></div>
+    <div class="mx-auto max-w-[900px] px-6 py-24 text-center">
+      <h2 class="text-4xl font-bold tracking-tight text-white md:text-5xl">
+        {/* CTA FINAL — substitua */}
+        Veja o Karteo em ação
+      </h2>
+      <p class="mx-auto mt-5 max-w-xl text-lg text-teal-pale/80">
+        {/* SUBTÍTULO CTA — substitua */}
+        Demonstração de 30 minutos com um caso real do seu escritório. Sem compromisso.
+      </p>
+      <a href="mailto:joao@karteo.com.br?subject=Quero%20agendar%20uma%20demonstra%C3%A7%C3%A3o%20do%20Karteo&body=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20demonstra%C3%A7%C3%A3o%20do%20Karteo." class="mt-10 inline-block rounded-lg bg-teal px-8 py-3.5 text-sm font-semibold text-white transition hover:bg-teal-hover">
+        Agendar demonstração
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-border-soft bg-surface">
+    <div class="mx-auto flex max-w-[1320px] flex-col items-center justify-between gap-4 px-6 py-10 text-sm text-muted md:flex-row">
+      <div class="flex items-center gap-2">
+        <span class="logo-wordmark text-sm text-dark">karteo<span class="logo-dot">.</span></span>
+        <span>© 2026</span>
+      </div>
+      <div class="flex gap-6">
+        <a href="#" class="transition hover:text-body">Termos</a>
+        <a href="#" class="transition hover:text-body">Privacidade</a>
+        <a href="mailto:joao@karteo.com.br" class="transition hover:text-body">Contato</a>
+      </div>
+    </div>
+  </footer>
+</Layout>
+
+<script>
+  const PROFILES = ['planejador', 'consultor', 'assessor', 'outro'] as const;
+  type Profile = typeof PROFILES[number];
+  const KEY = 'karteo:profile';
+
+  // Prioridade: URL ?perfil=X (campanha) > localStorage > default
+  const urlPerfil = new URLSearchParams(window.location.search).get('perfil');
+  const stored = localStorage.getItem(KEY);
+
+  let initial: Profile = 'planejador';
+  if (urlPerfil && (PROFILES as readonly string[]).includes(urlPerfil)) {
+    initial = urlPerfil as Profile;
+    localStorage.setItem(KEY, initial); // persiste pra próxima visita
+  } else if (stored && (PROFILES as readonly string[]).includes(stored)) {
+    initial = stored as Profile;
+  }
+  document.body.dataset.profile = initial;
+
+  const buttons = document.querySelectorAll<HTMLButtonElement>('[data-profile-toggle]');
+  const sync = (active: Profile) => {
+    buttons.forEach(b =>
+      b.setAttribute('aria-checked', b.dataset.profileToggle === active ? 'true' : 'false')
+    );
+  };
+  sync(initial);
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const p = btn.dataset.profileToggle as Profile | undefined;
+      if (!p || !(PROFILES as readonly string[]).includes(p)) return;
+      document.body.dataset.profile = p;
+      localStorage.setItem(KEY, p);
+      sync(p);
+    });
+  });
+</script>
+
+<script>
+  const fmtBRL = (n: number) =>
+    n.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+  const HORAS_AXION = 1.5; // tempo médio real: 1h30 por planejamento com Karteo
+  const CALC_KEY = 'karteo:calc';
+
+  type CalcState = { ticket: number; horas: number; planos: number };
+
+  const elTicket = document.getElementById('calc-ticket') as HTMLInputElement | null;
+  const elHoras = document.getElementById('calc-horas') as HTMLInputElement | null;
+  const elPlanos = document.getElementById('calc-planos') as HTMLInputElement | null;
+
+  const elAumentoTicket = document.getElementById('calc-aumento-ticket') as HTMLInputElement | null;
+  const elAumentoTicketValue = document.getElementById('calc-aumento-ticket-value');
+
+  // Passo 1 — Tempo (HOJE vs COM AXION + DELTA)
+  const elDiasHoje = document.getElementById('calc-out-dias-hoje');
+  const elHorasHoje = document.getElementById('calc-out-horas-hoje');
+  const elDiasKarteo = document.getElementById('calc-out-dias-karteo');
+  const elHorasKarteoTempo = document.getElementById('calc-out-horas-karteo-tempo');
+  const elDiasRecuperados = document.getElementById('calc-out-dias-recuperados');
+  const elSemanasRecuperadas = document.getElementById('calc-out-semanas-recuperadas');
+
+  // Passo 2 — Hora (HOJE vs COM AXION + MULT)
+  const elHoraHoje = document.getElementById('calc-out-hora-hoje');
+  const elHoraKarteo = document.getElementById('calc-out-hora-karteo');
+  const elMult = document.getElementById('calc-out-mult');
+
+  // Passo 4 — Receita (HOJE vs COM AXION + SOBRA LÍQUIDA)
+  const elReceitaHoje = document.getElementById('calc-out-receita-hoje');
+  const elReceitaPotencial = document.getElementById('calc-out-receita-potencial');
+  const elDeltaReceita = document.getElementById('calc-out-delta-receita');
+  const elSobraDetalhe = document.getElementById('calc-out-sobra-detalhe');
+
+  const elDiag = document.getElementById('calc-out-diag');
+
+  const CUSTO_AXION_PRO = 5964;
+
+  const parseBR = (s: string) => Number(s.replace(/\./g, '').replace(',', '.')) || 0;
+  const formatBRInt = (n: number) => Math.floor(n).toLocaleString('pt-BR');
+  const formatLiveBR = (el: HTMLInputElement) => {
+    const raw = el.value.replace(/\D/g, '');
+    el.value = raw ? Number(raw).toLocaleString('pt-BR') : '';
+  };
+
+  if (
+    elTicket && elHoras && elPlanos && elAumentoTicket && elAumentoTicketValue &&
+    elDiasHoje && elHorasHoje && elDiasKarteo && elHorasKarteoTempo &&
+    elDiasRecuperados && elSemanasRecuperadas &&
+    elHoraHoje && elHoraKarteo && elMult &&
+    elReceitaHoje && elReceitaPotencial && elDeltaReceita && elSobraDetalhe && elDiag
+  ) {
+    const stored = localStorage.getItem(CALC_KEY);
+    if (stored) {
+      try {
+        const s = JSON.parse(stored) as CalcState;
+        if (typeof s.ticket === 'number' && s.ticket > 0) elTicket.value = formatBRInt(s.ticket);
+        if (typeof s.horas === 'number' && s.horas > 0) elHoras.value = String(s.horas);
+        if (typeof s.planos === 'number' && s.planos > 0) elPlanos.value = String(s.planos);
+        if (typeof (s as { aumentoTicket?: number }).aumentoTicket === 'number') {
+          elAumentoTicket.value = String((s as { aumentoTicket: number }).aumentoTicket);
+        }
+      } catch {}
+    }
+
+    // Formata ao vivo enquanto digita (pontos de milhar)
+    elTicket.addEventListener('input', () => formatLiveBR(elTicket));
+
+    const recalc = () => {
+      const ticket = Math.max(1, parseBR(elTicket.value));
+      const horas = Math.max(1, Number(elHoras.value) || 1);
+      const planos = Math.max(1, Number(elPlanos.value) || 1);
+      const aumentoTicketPct = Math.max(0, Math.min(100, Number(elAumentoTicket.value) || 0));
+      const aumento = aumentoTicketPct / 100;
+
+      elAumentoTicketValue.textContent = String(aumentoTicketPct);
+
+      // PASSO 1 — TEMPO
+      const horasHojeAno = horas * planos * 12;
+      const horasKarteoAno = HORAS_AXION * planos * 12;
+      const diasHojeAno = Math.round(horasHojeAno / 8);
+      const diasKarteoAno = Math.round(horasKarteoAno / 8);
+      const diasRecuperados = Math.max(0, diasHojeAno - diasKarteoAno);
+      const semanasRecuperadas = Math.round(diasRecuperados / 5);
+
+      elDiasHoje.textContent = `${diasHojeAno} dias/ano`;
+      elHorasHoje.textContent = `${formatBRInt(horasHojeAno)}h/ano`;
+      elDiasKarteo.textContent = `${diasKarteoAno} dias/ano`;
+      elHorasKarteoTempo.textContent = `${formatBRInt(horasKarteoAno)}h/ano`;
+      elDiasRecuperados.textContent = `${diasRecuperados} dias úteis/ano`;
+      elSemanasRecuperadas.textContent = `(≈${semanasRecuperadas} semanas livres)`;
+
+      // PASSO 2 — VALOR DA HORA
+      const horaHoje = ticket / horas;
+      const horaKarteo = ticket / HORAS_AXION;
+      const mult = horaKarteo / horaHoje;
+
+      elHoraHoje.textContent = `R$ ${fmtBRL(horaHoje)}`;
+      elHoraKarteo.textContent = `R$ ${fmtBRL(horaKarteo)}`;
+      elMult.textContent = `${mult.toFixed(1).replace('.', ',')}×`;
+
+      // PASSO 4 — RECEITA (HOJE vs COM AXION + SOBRA LÍQUIDA já descontado o Karteo)
+      const receitaHojeAno = ticket * planos * 12;
+      const receitaPotencialAno = ticket * (1 + aumento) * planos * 12;
+      const deltaReceita = receitaPotencialAno - receitaHojeAno;
+      const sobraLiquida = deltaReceita - CUSTO_AXION_PRO;
+
+      elReceitaHoje.textContent = `R$ ${formatBRInt(receitaHojeAno)}`;
+      elReceitaPotencial.textContent = `R$ ${formatBRInt(receitaPotencialAno)}`;
+
+      if (sobraLiquida > 0) {
+        elDeltaReceita.textContent = `+ R$ ${formatBRInt(sobraLiquida)}`;
+        elSobraDetalhe.textContent = 'já descontado Karteo';
+      } else if (deltaReceita > 0) {
+        // gera receita extra mas não cobre o Karteo ainda
+        elDeltaReceita.textContent = `R$ ${formatBRInt(Math.abs(sobraLiquida))}`;
+        elSobraDetalhe.textContent = 'falta p/ pagar Karteo';
+      } else {
+        elDeltaReceita.textContent = `R$ 0`;
+        elSobraDetalhe.textContent = 'aumente o ticket no slider';
+      }
+
+      // DIAGNÓSTICO — número líquido (zero subtração mental)
+      const roiLiquido = sobraLiquida > 0 ? (sobraLiquida / CUSTO_AXION_PRO) : 0;
+      if (sobraLiquida > 0) {
+        elDiag.innerHTML = `<strong>+ R$ ${formatBRInt(sobraLiquida)} limpos</strong> no seu bolso (já descontado o Karteo) <em>e</em> <strong>${diasRecuperados} dias úteis</strong> de volta no calendário. ROI <strong>${roiLiquido.toFixed(1).replace('.', ',')}×</strong> só em dinheiro — o tempo é bônus.`;
+      } else if (deltaReceita > 0) {
+        elDiag.innerHTML = `Você ganha <strong>+ R$ ${formatBRInt(deltaReceita)}</strong> em receita extra, mas ainda <strong>R$ ${formatBRInt(Math.abs(sobraLiquida))}</strong> abaixo do custo do Karteo. Aumente o slider de ticket — ou ganhe pelo menos no <strong>tempo</strong>: ${diasRecuperados} dias úteis/ano de volta.`;
+      } else {
+        elDiag.innerHTML = `Sem aumento de ticket, o ganho é <strong>tempo puro</strong>: <strong>${diasRecuperados} dias úteis/ano</strong> de volta e sua hora passa a valer <strong>${mult.toFixed(1).replace('.', ',')}×</strong> mais. Mexa no slider acima pra ver quanto sobra no bolso quando você cobra mais caro.`;
+      }
+
+      localStorage.setItem(CALC_KEY, JSON.stringify({ ticket, horas, planos, aumentoTicket: aumentoTicketPct }));
+    };
+
+    [elTicket, elHoras, elPlanos, elAumentoTicket].forEach(el =>
+      el.addEventListener('input', recalc)
+    );
+
+    recalc();
+  }
+</script>
+
+<script>
+  // Calculadora de Churn — perfil Assessor
+  const fmtBRLChurn = (n: number) =>
+    n.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+  const REDUCAO_CHURN_DEFAULT = 0.30; // default ajustado pelo operador (mercado); lead controla via slider (10-50%)
+  const CUSTO_AXION_PRO_ANO = 5964; // R$ 497 × 12
+  const CHURN_KEY = 'karteo:calc-churn';
+
+  type ChurnState = {
+    aumTotal: number;
+    clientes: number;
+    roa: number;
+    churn: number;
+    repasse: number;
+    reducao: number;
+  };
+
+  const elAum = document.getElementById('calc-aum') as HTMLInputElement | null;
+  const elRoa = document.getElementById('calc-roa') as HTMLInputElement | null;
+  const elClientes = document.getElementById('calc-clientes') as HTMLInputElement | null;
+  const elChurnPct = document.getElementById('calc-churn-pct') as HTMLInputElement | null;
+  const elRepasse = document.getElementById('calc-repasse') as HTMLInputElement | null;
+  const elReducao = document.getElementById('calc-reducao') as HTMLInputElement | null;
+  const elReducaoValue = document.getElementById('calc-reducao-value');
+  const elReducaoLabel = document.getElementById('calc-out-reducao-label');
+
+  const elEmptyState = document.getElementById('calc-empty-state');
+  const elContent = document.getElementById('calc-content');
+  const elPerda = document.getElementById('calc-out-perda');
+  const elProtegida = document.getElementById('calc-out-protegida');
+  const elSobra = document.getElementById('calc-out-sobra');
+  const elDiagChurn = document.getElementById('calc-out-diag-churn');
+
+  const parseBRChurn = (s: string) => Number(s.replace(/\./g, '').replace(',', '.')) || 0;
+  const formatBRIntChurn = (n: number) => Math.floor(n).toLocaleString('pt-BR');
+  const formatLiveBRChurn = (el: HTMLInputElement) => {
+    const raw = el.value.replace(/\D/g, '');
+    el.value = raw ? Number(raw).toLocaleString('pt-BR') : '';
+  };
+
+  if (
+    elAum && elRoa && elClientes && elChurnPct && elRepasse && elReducao &&
+    elReducaoValue && elReducaoLabel &&
+    elEmptyState && elContent && elPerda && elProtegida && elSobra && elDiagChurn
+  ) {
+    const storedChurn = localStorage.getItem(CHURN_KEY);
+    if (storedChurn) {
+      try {
+        const s = JSON.parse(storedChurn) as ChurnState;
+        if (typeof s.aumTotal === 'number' && s.aumTotal > 0) elAum.value = formatBRIntChurn(s.aumTotal);
+        if (typeof s.clientes === 'number' && s.clientes > 0) elClientes.value = String(s.clientes);
+        if (typeof s.roa === 'number' && s.roa > 0) elRoa.value = String(s.roa);
+        if (typeof s.churn === 'number' && s.churn > 0) elChurnPct.value = String(s.churn);
+        if (typeof s.repasse === 'number' && s.repasse > 0) elRepasse.value = String(s.repasse);
+        if (typeof s.reducao === 'number' && s.reducao > 0) elReducao.value = String(s.reducao);
+      } catch {}
+    }
+
+    // Formata ao vivo enquanto digita (pontos de milhar)
+    elAum.addEventListener('input', () => formatLiveBRChurn(elAum));
+
+    const recalcChurn = () => {
+      const aumTotal = parseBRChurn(elAum.value);
+      const clientes = Number(elClientes.value) || 0;
+      const roa = Math.max(0.01, Number(elRoa.value) || 0) / 100;
+      const churn = Math.max(0.01, Number(elChurnPct.value) || 0) / 100;
+      const repasse = Math.max(0.01, Number(elRepasse.value) || 0) / 100;
+      const reducaoPct = Math.max(1, Math.min(60, Number(elReducao.value) || 30));
+      const reducao = reducaoPct / 100;
+
+      // Reflete o valor do slider na UI (input + output)
+      elReducaoValue.textContent = String(reducaoPct);
+      elReducaoLabel.textContent = `${reducaoPct}%`;
+
+      // Estado vazio quando faltar AUM total ou clientes
+      const leadWrap = document.getElementById('calc-churn-lead');
+      if (aumTotal <= 0 || clientes <= 0) {
+        elEmptyState.style.display = 'flex';
+        elContent.style.display = 'none';
+        if (leadWrap) leadWrap.style.visibility = 'hidden';
+        return;
+      }
+      elEmptyState.style.display = 'none';
+      elContent.style.display = 'block';
+      if (leadWrap) leadWrap.style.visibility = 'visible';
+
+      const receitaBrutaAno = aumTotal * roa;
+      const receitaLiquidaAno = receitaBrutaAno * repasse;
+      const perdaLiquidaAno = receitaLiquidaAno * churn;
+      const protegidaAno = perdaLiquidaAno * reducao;
+      const sobraAno = protegidaAno - CUSTO_AXION_PRO_ANO;
+
+      elPerda.textContent = `R$ ${fmtBRLChurn(perdaLiquidaAno)}`;
+      elProtegida.textContent = `R$ ${fmtBRLChurn(protegidaAno)}`;
+      elSobra.textContent = sobraAno >= 0
+        ? `R$ ${fmtBRLChurn(sobraAno)}`
+        : `−R$ ${fmtBRLChurn(Math.abs(sobraAno))}`;
+
+      if (sobraAno >= 0) {
+        elDiagChurn.innerHTML = `Cliente que fica paga sua mensalidade do Karteo <strong>e ainda sobra R$ ${fmtBRLChurn(sobraAno)} no seu bolso</strong>. Quanto maior sua carteira, maior esse número.`;
+      } else {
+        elDiagChurn.innerHTML = `Sua carteira ainda não fecha o ROI direto via churn. Mas o Karteo vira <strong>diferencial competitivo na captação</strong> — material profissional fecha cliente novo, e o ROI vira positivo na próxima dezena de clientes.`;
+      }
+
+      localStorage.setItem(CHURN_KEY, JSON.stringify({
+        aumTotal, clientes,
+        roa: roa * 100, churn: churn * 100, repasse: repasse * 100,
+        reducao: reducaoPct,
+      }));
+    };
+
+    [elAum, elRoa, elClientes, elChurnPct, elRepasse, elReducao].forEach(el =>
+      el.addEventListener('input', recalcChurn)
+    );
+
+    recalcChurn();
+  }
+</script>
+
+<script>
+  // Lead magnet — captura email do assessor após o cálculo
+  const leadForm = document.getElementById('lead-form') as HTMLFormElement | null;
+  const leadFormState = document.getElementById('lead-form-state');
+  const leadSuccessState = document.getElementById('lead-success-state');
+  const leadSubmit = document.getElementById('lead-submit') as HTMLButtonElement | null;
+  const leadNome = document.getElementById('lead-nome') as HTMLInputElement | null;
+  const leadEmail = document.getElementById('lead-email') as HTMLInputElement | null;
+
+  if (leadForm && leadFormState && leadSuccessState && leadSubmit && leadNome && leadEmail) {
+    leadForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const nome = leadNome.value.trim();
+      const email = leadEmail.value.trim();
+
+      // Validação local COM feedback visível (antes era um return silencioso — parecia que o site quebrava)
+      const showLeadError = (msg: string) => {
+        leadForm.querySelector('[data-lead-error]')?.remove();
+        const el = document.createElement('p');
+        el.dataset.leadError = 'true';
+        el.className = 'mt-2 text-center text-[11px] text-error';
+        el.textContent = msg;
+        leadForm.appendChild(el);
+      };
+
+      if (!nome || !email || !email.includes('@')) {
+        showLeadError(!nome
+          ? 'Preencha seu nome, por favor.'
+          : 'Digite um email válido (ex.: nome@email.com).');
+        return;
+      }
+      leadForm.querySelector('[data-lead-error]')?.remove();
+
+      leadSubmit.disabled = true;
+      leadSubmit.textContent = 'Enviando...';
+
+      // Snapshot dos dados da calculadora pra mandar junto no payload
+      const aumInput = document.getElementById('calc-aum') as HTMLInputElement | null;
+      const clientesInput = document.getElementById('calc-clientes') as HTMLInputElement | null;
+      const roaInput = document.getElementById('calc-roa') as HTMLInputElement | null;
+      const churnInput = document.getElementById('calc-churn-pct') as HTMLInputElement | null;
+      const repasseInput = document.getElementById('calc-repasse') as HTMLInputElement | null;
+      const reducaoInput = document.getElementById('calc-reducao') as HTMLInputElement | null;
+      const perdaTxt = document.getElementById('calc-out-perda')?.textContent ?? '';
+      const protegidaTxt = document.getElementById('calc-out-protegida')?.textContent ?? '';
+      const sobraTxt = document.getElementById('calc-out-sobra')?.textContent ?? '';
+
+      const payload = {
+        nome,
+        email,
+        perfil: 'assessor',
+        aumTotal: aumInput?.value ?? '',
+        clientes: clientesInput?.value ?? '',
+        roa: roaInput?.value ?? '',
+        churn: churnInput?.value ?? '',
+        repasse: repasseInput?.value ?? '',
+        reducao: reducaoInput?.value ?? '30',
+        diagnostico: { perda: perdaTxt, protegida: protegidaTxt, sobra: sobraTxt },
+        capturadoEm: new Date().toISOString(),
+      };
+
+      try {
+        const res = await fetch('/api/lead-churn', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        const data = (await res.json().catch(() => ({}))) as { ok?: boolean; error?: string };
+
+        if (!res.ok || !data.ok) {
+          throw new Error(data.error ?? 'Falha ao enviar email');
+        }
+
+        leadFormState.style.display = 'none';
+        leadSuccessState.style.display = 'block';
+      } catch (err) {
+        console.error('[lead-churn] erro:', err);
+        leadSubmit.disabled = false;
+        leadSubmit.textContent = 'Tentar novamente';
+        const existingError = leadForm.querySelector('[data-lead-error]');
+        if (existingError) existingError.remove();
+        const errEl = document.createElement('p');
+        errEl.dataset.leadError = 'true';
+        errEl.className = 'mt-2 text-center text-[11px] text-error';
+        errEl.textContent = 'Não conseguimos enviar agora. Tente em alguns instantes ou escreva para joao@karteo.com.br.';
+        leadForm.appendChild(errEl);
+      }
+    });
+  }
+</script>
