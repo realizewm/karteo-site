@@ -68,35 +68,19 @@ const dimsPos = dims.map((d, i) => {
     <div class="absolute inset-x-0 top-0 z-0 h-px bg-gradient-to-r from-transparent via-teal-light/40 to-transparent"></div>
     <div class="relative z-10 mx-auto grid max-w-[1320px] items-center gap-12 px-6 py-24 lg:grid-cols-[1.1fr_0.95fr] lg:gap-16 lg:py-28">
       <div>
-        <div class="mb-7 inline-flex items-center gap-2 rounded-full border border-teal-light/30 bg-teal-light/10 px-3.5 py-1.5 text-xs font-semibold text-teal-light">
-          <span class="h-1.5 w-1.5 rounded-full bg-teal-light"></span>
-          Software de planejamento financeiro · para escritórios de consultoria
-        </div>
         <h1 class="text-[44px] font-bold leading-[1.04] tracking-tight text-white md:text-[62px]">
           Gestão de carteira virou <span class="text-teal-light">commodity</span>.
         </h1>
-        <p class="mt-5 text-2xl font-semibold leading-snug text-white/85 md:text-[32px]">
-          A pergunta que sobra: por que ainda pagam por você?
+        <p class="mt-6 max-w-xl text-2xl font-semibold leading-snug text-white/85 md:text-[30px]">
+          O que segura o cliente não mora na carteira. Mora no planejamento.
         </p>
-        <p class="mt-7 max-w-xl text-lg leading-relaxed text-white/55">
-          Alocar bem virou o mínimo. O que faz o cliente ficar — mesmo quando o banco oferece
-          mais rentabilidade — é enxergar a vida financeira dele por inteiro, num padrão de
-          entrega que impressiona. O Karteo te dá os dois: a visão de 360° da vida do cliente,
-          num relatório com a sua marca — pronto em cerca de uma hora.
+        <p class="mt-6 max-w-md text-lg leading-relaxed text-white/55">
+          E é isso que o Karteo põe na sua mão: a vida financeira do cliente por inteiro, com a sua marca, em cerca de uma hora.
         </p>
-        <div class="mt-9 flex flex-col gap-3 sm:flex-row">
-          <a href="#cta" class="rounded-lg bg-teal px-6 py-3.5 text-sm font-semibold text-white shadow-[0_16px_40px_-12px_rgba(13,148,136,0.7)] transition hover:bg-teal-light">
+        <div class="mt-9">
+          <a href="#cta" class="inline-block rounded-lg bg-teal px-7 py-4 text-sm font-semibold text-white shadow-[0_16px_40px_-12px_rgba(13,148,136,0.7)] transition hover:bg-teal-light">
             Agendar demonstração
           </a>
-          <a href="#incomodo" class="group inline-flex items-center justify-center gap-2 rounded-lg border border-white/15 px-6 py-3.5 text-sm font-semibold text-white/80 transition hover:border-white/40 hover:text-white">
-            Por que isso te afeta
-            <span class="transition group-hover:translate-x-1">→</span>
-          </a>
-        </div>
-        <div class="mt-9 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs font-medium text-white/40">
-          <span class="flex items-center gap-1.5"><span class="h-1 w-1 rounded-full bg-teal-light/70"></span> 360° em ~1 hora</span>
-          <span class="flex items-center gap-1.5"><span class="h-1 w-1 rounded-full bg-teal-light/70"></span> Método embutido</span>
-          <span class="flex items-center gap-1.5"><span class="h-1 w-1 rounded-full bg-teal-light/70"></span> Relatório com a sua marca</span>
         </div>
       </div>
 
@@ -179,78 +163,242 @@ const dimsPos = dims.map((d, i) => {
     </div>
   </section>
 
-  <!-- 2 · O INCÔMODO -->
-  <section id="incomodo" class="border-t border-border-soft bg-surface py-24">
-    <div class="rv mx-auto max-w-[820px] px-6 text-center">
-      <div class="mb-3 text-xs font-semibold uppercase tracking-[0.15em] text-teal">O incômodo</div>
-      <h2 class="text-3xl font-bold tracking-tight text-dark md:text-4xl">
-        O que você entrega que a plataforma do banco não entrega?
-      </h2>
-      <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-subtle">
-        Rentabilidade é tabela comparável. Alocação, qualquer robô sugere. O rebate caiu, e o
-        cliente sabe. Se o seu valor é escolher produtos, você compete com robôs — e perde no preço.
+  <!-- 1b · A PROVA (pesquisa Cerulli) -->
+  <section id="prova-cliente" class="border-t border-border-soft bg-surface py-24 md:py-32">
+    <div class="mx-auto max-w-[1160px] px-6">
+      <div class="grid gap-12 md:grid-cols-[0.9fr_1.1fr] md:items-center md:gap-16">
+
+        <!-- texto -->
+        <div class="rv">
+          <div class="flex items-baseline gap-5 md:gap-7">
+            <span class="select-none text-5xl font-bold leading-none tracking-tight text-teal/25 tabular-nums md:text-7xl">01</span>
+            <h2 class="max-w-[15ch] text-3xl font-bold leading-[1.08] tracking-tight text-dark md:text-[2.6rem]">
+              Ninguém escolhe um assessor pela rentabilidade.
+            </h2>
+          </div>
+          <p class="mt-6 max-w-[44ch] text-lg leading-relaxed text-subtle">
+            No mercado mais maduro do mundo, os próprios investidores já disseram o que pesa na hora de confiar o patrimônio a alguém. E a performance não lidera.
+          </p>
+        </div>
+
+        <!-- gráfico de barras -->
+        <div id="cerulli-chart" class="rv flex flex-col gap-6">
+          <p class="text-[13px] font-medium leading-snug text-subtle">% de investidores que consideram cada fator ao escolher um assessor</p>
+          <div class="cerulli-row">
+            <div class="mb-2 flex items-baseline justify-between gap-4">
+              <span class="text-[15px] font-medium text-body">Entende meus objetivos e meu apetite a risco</span>
+              <span class="text-lg font-bold tabular-nums text-teal">55%</span>
+            </div>
+            <div class="h-2.5 w-full overflow-hidden rounded-full bg-border-soft">
+              <div class="cerulli-fill h-full rounded-full bg-teal transition-[width] duration-[1200ms] ease-out" style="width:0" data-value="55"></div>
+            </div>
+          </div>
+
+          <div class="cerulli-row">
+            <div class="mb-2 flex items-baseline justify-between gap-4">
+              <span class="text-[15px] font-medium text-body">Enxerga meu quadro financeiro por inteiro</span>
+              <span class="text-lg font-bold tabular-nums text-teal">49%</span>
+            </div>
+            <div class="h-2.5 w-full overflow-hidden rounded-full bg-border-soft">
+              <div class="cerulli-fill h-full rounded-full bg-teal transition-[width] duration-[1200ms] ease-out" style="width:0" data-value="49"></div>
+            </div>
+          </div>
+
+          <div class="cerulli-row">
+            <div class="mb-2 flex items-baseline justify-between gap-4">
+              <span class="text-[15px] font-medium text-subtle">Performance dos investimentos vs. mercado</span>
+              <span class="text-lg font-bold tabular-nums text-slate-soft">46%</span>
+            </div>
+            <div class="h-2.5 w-full overflow-hidden rounded-full bg-border-soft">
+              <div class="cerulli-fill h-full rounded-full bg-slate-soft transition-[width] duration-[1200ms] ease-out" style="width:0" data-value="46"></div>
+            </div>
+          </div>
+
+          <p class="mt-1 text-xs leading-relaxed text-muted">
+            Fonte: Cerulli Associates · investidores dos EUA · out/2024. Cada pessoa pôde marcar mais de um fator, por isso os valores não somam 100%.
+          </p>
+        </div>
+      </div>
+
+      <!-- remate -->
+      <p class="rv mt-14 max-w-[58ch] border-l-2 border-dark/70 pl-5 text-xl font-semibold leading-relaxed text-body md:mt-16 md:text-2xl">
+        A rentabilidade virou o mínimo. O que o cliente procura é <span class="text-teal">alguém que entenda a vida dele por inteiro</span>.
       </p>
     </div>
   </section>
+
+  <script>
+    (function () {
+      const chart = document.getElementById('cerulli-chart');
+      if (!chart) return;
+      const fills = chart.querySelectorAll('.cerulli-fill');
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            // uma barra de cada vez (efeito "votos" carregando em sequência)
+            fills.forEach((f, i) => { setTimeout(() => { f.style.width = f.dataset.value + '%'; }, i * 280); });
+            io.disconnect();
+          }
+        });
+      }, { threshold: 0.4 });
+      io.observe(chart);
+    })();
+  </script>
 
   <!-- 3 · A VIRADA -->
-  <section id="virada" class="border-t border-border-soft bg-bg-page py-24">
-    <div class="rv mx-auto max-w-[820px] px-6 text-center">
-      <div class="mb-3 text-xs font-semibold uppercase tracking-[0.15em] text-teal">A virada</div>
-      <h2 class="text-3xl font-bold tracking-tight text-dark md:text-4xl">
-        O cliente não te paga por rentabilidade.
-        <span class="text-teal">Te paga pelas respostas que a carteira não dá.</span>
-      </h2>
-    </div>
+  <section id="virada" class="border-t border-border-soft bg-bg-page pb-24 md:pb-32">
+    <!-- conjunto: faixa (título, off-white) + carrossel (fotos grandes, full-bleed) -->
+    <div class="relative left-1/2 w-screen -translate-x-1/2">
 
-    <!-- Comparativo: o que se entrega × o que segura o cliente -->
-    <div class="relative mx-auto mt-12 grid max-w-[900px] items-stretch gap-5 px-6 md:grid-cols-2 md:gap-6">
-      <div class="rv vs-card vs-fraca" style="--d:.1s">
-        <div class="vs-tag">O que a maioria acredita que entrega valor</div>
-        <ul class="mt-5 space-y-3.5">
-          <li><i class="vs-x">×</i><span>Bater o CDI e mostrar rentabilidade acima da média.</span></li>
-          <li><i class="vs-x">×</i><span>Uma alocação mais sofisticada que a do concorrente.</span></li>
-          <li><i class="vs-x">×</i><span>Acesso aos "melhores produtos" do mercado.</span></li>
-          <li><i class="vs-x">×</i><span>Estar sempre disponível pra comentar o mercado.</span></li>
-          <li><i class="vs-x">×</i><span>Relatório de rentabilidade todo mês.</span></li>
-        </ul>
-        <p class="vs-nota">Tudo importante — e tudo comparável, replicável e cada vez mais de graça.</p>
+      <!-- faixa: título da dobra, sobre o off-white -->
+      <div class="rv mx-auto max-w-[1160px] px-6 pb-8 pt-16 md:pb-10 md:pt-20">
+        <div class="flex items-baseline gap-4 md:gap-7">
+          <span class="select-none text-5xl font-bold leading-none tracking-tight text-teal/25 tabular-nums md:text-7xl">02</span>
+          <h2 class="text-3xl font-bold leading-[1.1] tracking-tight text-dark md:text-[2.6rem]">
+            Você entrega rentabilidade. Mas o seu cliente ainda espera pelas <span class="text-teal">respostas que a carteira não dá.</span>
+          </h2>
+        </div>
       </div>
 
-      <div class="rv vs-card vs-forte" style="--d:.25s">
-        <div class="vs-tag vs-tag-teal">O que o cliente realmente paga pra saber</div>
-        <ul class="mt-5 space-y-3.5">
-          <li><Icon name="check" class="vs-ok" /><span>"Posso me aposentar quando eu sonho — e com quanto por mês?"</span></li>
-          <li><Icon name="check" class="vs-ok" /><span>"Consigo fazer a viagem dos sonhos sem comprometer o resto?"</span></li>
-          <li><Icon name="check" class="vs-ok" /><span>"Minha família fica protegida se algo acontecer comigo?"</span></li>
-          <li><Icon name="check" class="vs-ok" /><span>"Estou pagando imposto mais do que precisaria?"</span></li>
-          <li><Icon name="check" class="vs-ok" /><span>"O que acontece com o meu patrimônio quando eu partir?"</span></li>
-        </ul>
-        <p class="vs-nota vs-nota-teal">Nenhuma dessas respostas mora na carteira. Todas moram no plano.</p>
-      </div>
+      <!-- carrossel: fotos grandes (aspect 7:4), full-bleed -->
+      <div id="virada-carousel" class="rv relative aspect-[7/4] max-h-[86vh] w-full overflow-hidden bg-dark" aria-roledescription="carrossel" aria-label="As respostas que a carteira não dá">
 
-      <div class="vs-badge" aria-hidden="true">vs</div>
+      <!-- 1 · aposentadoria — gente espalhada; o único respiro é o alto à direita (árvores) -->
+      <figure class="vc-slide absolute inset-0 opacity-100 transition-opacity duration-[600ms] ease-out" data-idx="0">
+        <img src="/images/virada/aposentadoria.jpg" alt="Casal grisalho cheio de energia correndo com os netos no quintal" class="vc-img h-full w-full object-cover object-center" />
+        <div class="absolute inset-0 bg-gradient-to-bl from-black/70 via-black/10 to-transparent"></div>
+        <figcaption class="absolute inset-0">
+          <div class="mx-auto flex h-full max-w-[1160px] items-start justify-end px-6 pt-8 md:pt-12">
+            <p class="max-w-[15ch] text-right text-2xl font-bold leading-tight tracking-tight text-white drop-shadow-[0_2px_16px_rgba(0,0,0,0.55)] md:text-[2.5rem]">“Posso me aposentar quando eu sonho, e com quanto por mês?”</p>
+          </div>
+        </figcaption>
+      </figure>
+
+      <!-- 2 · viagem — família à esquerda, texto embaixo à direita -->
+      <figure class="vc-slide absolute inset-0 opacity-0 transition-opacity duration-[600ms] ease-out" data-idx="1">
+        <img src="/images/virada/viagem.jpg" alt="Família jovem viajando junta, explorando uma cidade ensolarada" class="vc-img h-full w-full object-cover object-center" />
+        <div class="absolute inset-0 bg-gradient-to-tl from-black/70 via-black/15 to-transparent"></div>
+        <figcaption class="absolute inset-0">
+          <div class="mx-auto flex h-full max-w-[1160px] items-end justify-end px-6 pb-16 md:pb-24">
+            <p class="max-w-[16ch] text-right text-2xl font-bold leading-tight tracking-tight text-white drop-shadow-[0_2px_16px_rgba(0,0,0,0.55)] md:text-[2.5rem]">“Consigo fazer a viagem dos sonhos sem comprometer o resto?”</p>
+          </div>
+        </figcaption>
+      </figure>
+
+      <!-- 3 · transição — ela olha pra direita, texto embaixo à esquerda (sobre o balcão) -->
+      <figure class="vc-slide absolute inset-0 opacity-0 transition-opacity duration-[600ms] ease-out" data-idx="2">
+        <img src="/images/virada/transicao.jpg" alt="Empreendedora feliz no próprio café recém-aberto" class="vc-img h-full w-full object-cover object-center" />
+        <div class="absolute inset-0 bg-gradient-to-tr from-black/70 via-black/15 to-transparent"></div>
+        <figcaption class="absolute inset-0">
+          <div class="mx-auto flex h-full max-w-[1160px] items-end justify-start px-6 pb-16 md:pb-24">
+            <p class="max-w-[15ch] text-2xl font-bold leading-tight tracking-tight text-white drop-shadow-[0_2px_16px_rgba(0,0,0,0.55)] md:text-[2.5rem]">“Eu consigo fazer uma transição de carreira tranquila?”</p>
+          </div>
+        </figcaption>
+      </figure>
+
+      <!-- 4 · proteção — jovem+retrato à esquerda, texto embaixo à direita -->
+      <figure class="vc-slide absolute inset-0 opacity-0 transition-opacity duration-[600ms] ease-out" data-idx="3">
+        <img src="/images/virada/protecao.jpg" alt="Jovem na formatura segurando o porta-retrato do pai" class="vc-img h-full w-full object-cover object-center" />
+        <div class="absolute inset-0 bg-gradient-to-tl from-black/70 via-black/15 to-transparent"></div>
+        <figcaption class="absolute inset-0">
+          <div class="mx-auto flex h-full max-w-[1160px] items-end justify-end px-6 pb-16 md:pb-24">
+            <p class="max-w-[15ch] text-right text-2xl font-bold leading-tight tracking-tight text-white drop-shadow-[0_2px_16px_rgba(0,0,0,0.55)] md:text-[2.5rem]">“Minha família fica protegida se algo acontecer comigo?”</p>
+          </div>
+        </figcaption>
+      </figure>
+
+      <!-- setas de navegação manual -->
+      <button type="button" class="vc-prev absolute left-3 top-1/2 z-20 grid h-11 w-11 -translate-y-1/2 place-items-center rounded-full bg-black/25 text-white backdrop-blur-sm transition hover:bg-black/45 md:left-6" aria-label="Pergunta anterior">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <button type="button" class="vc-next absolute right-3 top-1/2 z-20 grid h-11 w-11 -translate-y-1/2 place-items-center rounded-full bg-black/25 text-white backdrop-blur-sm transition hover:bg-black/45 md:right-6" aria-label="Próxima pergunta">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+
+      <!-- indicador: barras que enchem, sinalizando a troca -->
+      <div class="absolute inset-x-0 bottom-0 z-10">
+        <div class="mx-auto flex max-w-[1160px] gap-2 px-6 pb-6">
+          <button type="button" class="vc-dot relative h-1 flex-1 overflow-hidden rounded-full bg-white/25" data-idx="0" aria-label="Pergunta 1"><span class="vc-fill absolute inset-y-0 left-0 block w-0 bg-white"></span></button>
+          <button type="button" class="vc-dot relative h-1 flex-1 overflow-hidden rounded-full bg-white/25" data-idx="1" aria-label="Pergunta 2"><span class="vc-fill absolute inset-y-0 left-0 block w-0 bg-white"></span></button>
+          <button type="button" class="vc-dot relative h-1 flex-1 overflow-hidden rounded-full bg-white/25" data-idx="2" aria-label="Pergunta 3"><span class="vc-fill absolute inset-y-0 left-0 block w-0 bg-white"></span></button>
+          <button type="button" class="vc-dot relative h-1 flex-1 overflow-hidden rounded-full bg-white/25" data-idx="3" aria-label="Pergunta 4"><span class="vc-fill absolute inset-y-0 left-0 block w-0 bg-white"></span></button>
+        </div>
+      </div>
+    </div>
     </div>
 
-    <div class="rv mx-auto max-w-[820px] px-6 text-center">
-      <p class="mx-auto mt-12 max-w-2xl text-xl font-semibold leading-relaxed text-body">
-        Quem responde isso não cabe num app — e justifica cobrar por conselho, não por produto.
-      </p>
+    <!-- ponte pra a segunda metade — virada de ato -->
+    <div class="mx-auto max-w-[1160px] px-6">
+      <div class="rv mx-auto mt-20 max-w-[40ch] text-center md:mt-28">
+        <div class="mx-auto mb-7 h-px w-12 bg-teal/40"></div>
+        <p class="text-3xl font-bold leading-tight tracking-tight text-dark md:text-5xl">
+          É por isso que existe o <span class="text-teal">Karteo</span>.
+        </p>
+        <p class="mx-auto mt-5 max-w-[42ch] text-lg leading-relaxed text-subtle">
+          A ferramenta que transforma cada uma dessas perguntas num plano de verdade, com a sua marca.
+        </p>
+      </div>
     </div>
   </section>
+
+  <script>
+    (function () {
+      const car = document.getElementById('virada-carousel');
+      if (!car) return;
+      const slides = Array.from(car.querySelectorAll('.vc-slide'));
+      const dots = Array.from(car.querySelectorAll('.vc-dot'));
+      const fills = Array.from(car.querySelectorAll('.vc-fill'));
+      const DURATION = 5000;
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let active = 0, elapsed = 0, last = null, paused = false;
+
+      // Fonte de tempo ÚNICA (elapsed): a barrinha e a troca compartilham o mesmo
+      // cronômetro, então a barra completa EXATAMENTE no instante da troca, sempre igual.
+      function apply() {
+        slides.forEach((s, i) => {
+          s.classList.toggle('opacity-100', i === active);
+          s.classList.toggle('opacity-0', i !== active);
+        });
+        fills.forEach((f, i) => {
+          f.style.width = (i < active ? 100 : i > active ? 0 : (elapsed / DURATION) * 100) + '%';
+        });
+      }
+      function frame(ts) {
+        if (last === null) last = ts;
+        const dt = ts - last; last = ts;
+        if (!paused && !reduce) {
+          elapsed += dt;
+          if (elapsed >= DURATION) { elapsed = 0; active = (active + 1) % slides.length; }
+          apply();
+        }
+        requestAnimationFrame(frame);
+      }
+      function goTo(n) { active = (n + slides.length) % slides.length; elapsed = 0; apply(); }
+
+      dots.forEach((d, i) => d.addEventListener('click', () => goTo(i)));
+      const prev = car.querySelector('.vc-prev');
+      const next = car.querySelector('.vc-next');
+      if (prev) prev.addEventListener('click', () => goTo(active - 1));
+      if (next) next.addEventListener('click', () => goTo(active + 1));
+
+      apply();
+      requestAnimationFrame(frame);
+    })();
+  </script>
 
   <!-- 4 · O NOVO DIFERENCIAL: 360° interativo, com o relatório ganhando vida -->
   <section class="border-t border-border-soft bg-surface py-24">
     <div class="mx-auto max-w-[1320px] px-6">
-      <div class="rv mx-auto max-w-2xl text-center">
-        <div class="mb-3 text-xs font-semibold uppercase tracking-[0.15em] text-teal">O novo diferencial</div>
-        <h2 class="text-3xl font-bold tracking-tight text-dark md:text-4xl">
-          A vida financeira inteira — não só a carteira.
-        </h2>
-        <p class="mt-4 text-lg leading-relaxed text-subtle">
-          Oito dimensões que levam você de "assessor" a "consultor de vida financeira".
-          A carteira é só uma delas.
-        </p>
+      <div class="rv flex items-baseline gap-5 md:gap-7">
+        <span class="select-none text-5xl font-bold leading-none tracking-tight text-teal/25 tabular-nums md:text-7xl">03</span>
+        <div>
+          <h2 class="max-w-[22ch] text-3xl font-bold leading-[1.08] tracking-tight text-dark md:text-[2.6rem]">
+            A vida financeira inteira. <span class="text-teal">Não só a carteira.</span>
+          </h2>
+          <p class="mt-5 max-w-[46ch] text-lg leading-relaxed text-subtle">
+            Oito dimensões que levam você de "assessor" a "consultor de vida financeira". A carteira é só uma delas.
+          </p>
+        </div>
       </div>
 
       <div id="giro360" class="mt-16 grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
